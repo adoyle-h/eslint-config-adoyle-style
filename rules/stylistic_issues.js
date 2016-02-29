@@ -28,12 +28,12 @@ module.exports = {
         'func-names': 0,
         // enforce use of function declarations or expressions
         'func-style': [2, 'declaration', {'allowArrowFunctions': true}],
+        // blacklist certain identifiers to prevent them being used
+        'id-blacklist': 0,
         // this option enforces minimum and maximum identifier lengths (variable names, property names etc.)
         'id-length': 0,
         // require identifiers to match the provided regular expression
         'id-match': 0,
-        // blacklist certain identifiers to prevent them being used
-        'id-blacklist': 0,
         // specify tab or space width for your code (fixable)
         'indent': [2, 4, {'SwitchCase': 1, 'VariableDeclarator': { 'var': 1, 'let': 1, 'const': 1}}],
         // specify whether double or single quotes should be used in JSX attributes (fixable)
@@ -65,6 +65,8 @@ module.exports = {
         'new-parens': 2,
         // require or disallow an empty newline after variable declarations
         'newline-after-var': 0,
+        // enforce newline after each call when chaining the calls
+        'newline-per-chained-call': 0,
         // disallow use of the `Array` constructor
         'no-array-constructor': 2,
         // disallow use of bitwise operators
@@ -89,8 +91,6 @@ module.exports = {
         'no-plusplus': 0,
         // disallow use of certain syntax in code
         'no-restricted-syntax': [2, 'WithStatement'],
-        // disallow whitespace before properties
-        'no-whitespace-before-property': 2,
         // disallow space between function identifier and application (fixable)
         'no-spaced-func': 2,
         // disallow the use of ternary operators
@@ -101,10 +101,14 @@ module.exports = {
         'no-underscore-dangle': 0,
         // disallow the use of ternary operators when a simpler alternative exists
         'no-unneeded-ternary': 2,
+        // disallow whitespace before properties
+        'no-whitespace-before-property': 2,
         // require or disallow padding inside curly braces (fixable)
         'object-curly-spacing': [2, 'never'],
         // require or disallow one variable declaration per function
         'one-var': [2, {'uninitialized': 'always', 'initialized': 'never'}],
+        // require or disallow an newline around variable declarations
+        'one-var-declaration-per-line': [2, 'initializations'],
         // require assignment operator shorthand where possible or prohibit it entirely
         'operator-assignment': 0,
         // enforce operators to be placed before or after line breaks
@@ -121,14 +125,14 @@ module.exports = {
         'quotes': [2, 'single'],
         // Require JSDoc comment
         'require-jsdoc': 0,
-        // enforce spacing before and after semicolons (fixable)
-        'semi-spacing': [2, {'before': false, 'after': true}],
         // require or disallow use of semicolons instead of ASI (fixable)
         'semi': [2, 'always'],
-        // sort variables within the same declaration block
-        'sort-vars': 0,
+        // enforce spacing before and after semicolons (fixable)
+        'semi-spacing': [2, {'before': false, 'after': true}],
         // sort import declarations within module
         'sort-imports': 0,
+        // sort variables within the same declaration block
+        'sort-vars': 0,
         // require or disallow a space before blocks (fixable)
         'space-before-blocks': 2,
         // require or disallow a space before function opening parenthesis (fixable)
