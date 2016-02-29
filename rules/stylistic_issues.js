@@ -108,7 +108,7 @@ module.exports = {
         // require or disallow one variable declaration per function
         'one-var': [2, {'uninitialized': 'always', 'initialized': 'never'}],
         // require or disallow an newline around variable declarations
-        'one-var-declaration-per-line': 'initializations',
+        'one-var-declaration-per-line': [2, 'initializations'],
         // require assignment operator shorthand where possible or prohibit it entirely
         'operator-assignment': 0,
         // enforce operators to be placed before or after line breaks
