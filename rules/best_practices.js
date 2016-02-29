@@ -34,8 +34,8 @@ module.exports = {
         'no-div-regex': 2,
         // disallow `else` after a `return` in an `if`
         'no-else-return': 0,
-        // disallow use of labels for anything other than loops and switches (recommended)
-        'no-empty-label': 2,
+        // disallow use of empty functions
+        'no-empty-function': 1,
         // disallow use of empty destructuring patterns (recommended)
         'no-empty-pattern': 2,
         // disallow comparisons to null without a type-checking operator
@@ -46,6 +46,8 @@ module.exports = {
         'no-extend-native': 2,
         // disallow unnecessary function binding
         'no-extra-bind': 2,
+        // disallow unnecessary labels
+        'no-extra-label': 2,
         // disallow fallthrough of `case` statements (recommended)
         'no-fallthrough': 2,
         // disallow the use of leading or trailing decimal points in numeric literals
@@ -79,16 +81,16 @@ module.exports = {
         'no-multi-str': 0,
         // disallow reassignments of native objects
         'no-native-reassign': [2, {'exceptions': []}],
+        // disallow use of the `new` operator when not part of an assignment or comparison
+        'no-new': 2,
         // disallow use of new operator for `Function` object
         'no-new-func': 2,
         // disallows creating new instances of `String`,`Number`, and `Boolean`
         'no-new-wrappers': 2,
-        // disallow use of the `new` operator when not part of an assignment or comparison
-        'no-new': 2,
-        // disallow use of octal escape sequences in string literals, such as `var foo = "Copyright \251";`
-        'no-octal-escape': 2,
         // disallow use of octal literals (recommended)
         'no-octal': 2,
+        // disallow use of octal escape sequences in string literals, such as `var foo = "Copyright \251";`
+        'no-octal-escape': 2,
         // disallow reassignment of function parameters
         'no-param-reassign': [1, {'props': true}],
         // disallow use of `process.env`
@@ -101,6 +103,8 @@ module.exports = {
         'no-return-assign': [2, 'always'],
         // disallow use of `javascript:` urls.
         'no-script-url': 0,
+        // disallow assignments where both sides are exactly the same (recommended)
+        'no-self-assign': 2,
         // disallow comparisons where both sides are exactly the same
         'no-self-compare': 2,
         // disallow use of the comma operator
@@ -111,6 +115,8 @@ module.exports = {
         'no-unmodified-loop-condition': 2,
         // disallow usage of expressions in statement position
         'no-unused-expressions': 2,
+        // disallow unused labels (recommended)
+        'no-unused-labels': 2,
         // disallow unnecessary `.call()` and `.apply()`
         'no-useless-call': 2,
         // disallow unnecessary concatenation of literals or template literals
