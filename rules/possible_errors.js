@@ -20,10 +20,10 @@ module.exports = {
         'no-dupe-keys': 2,
         // disallow a duplicate case label. (recommended)
         'no-duplicate-case': 2,
-        // disallow the use of empty character classes in regular expressions (recommended)
-        'no-empty-character-class': 2,
         // disallow empty statements (recommended)
         'no-empty': 2,
+        // disallow the use of empty character classes in regular expressions (recommended)
+        'no-empty-character-class': 2,
         // disallow assigning to the exception in a catch block (recommended)
         'no-ex-assign': 2,
         // disallow double-negation boolean casts in a boolean context (recommended)
