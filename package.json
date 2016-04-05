@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-adoyle-style",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "config-sp": "^0.1.1",
     "cz-conventional-changelog": "^1.1.5",
     "del": "^2.2.0",
-    "eslint": "~2.6.0",
+    "eslint": "~2.7.0",
     "gulp": "^3.9.0",
     "gulp-bump": "^1.0.0",
     "gulp-conventional-changelog": "^0.7.0",
@@ -37,7 +37,7 @@
     "run-sequence": "^1.1.5"
   },
   "peerDependencies": {
-    "eslint": "~2.6.0"
+    "eslint": "~2.7.0"
   },
   "config": {
     "commitizen": {
