@@ -93,8 +93,6 @@ module.exports = {
         'no-octal-escape': 2,
         // disallow reassignment of function parameters
         'no-param-reassign': [1, {'props': true}],
-        // disallow use of `process.env`
-        'no-process-env': 0,
         // disallow usage of `__proto__` property
         'no-proto': 2,
         // disallow declaring the same variable more than once (recommended)
@@ -121,6 +119,8 @@ module.exports = {
         'no-useless-call': 2,
         // disallow unnecessary concatenation of literals or template literals
         'no-useless-concat': 2,
+        // disallow unnecessary usage of escape character
+        'no-useless-escape': 1,
         // disallow use of the `void` operator
         'no-void': 2,
         // disallow usage of configurable warning terms in comments - e.g. `TODO` or `FIXME`

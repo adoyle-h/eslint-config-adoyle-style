@@ -59,12 +59,16 @@ module.exports = {
         'max-params': [1, 4],
         // specify the maximum number of statement allowed in a function
         'max-statements': 0,
+        // specify the maximum number of statements allowed per line
+        'max-statements-per-line': 0,
         // require a capital letter for constructors
         'new-cap': [2, {'newIsCap': true, 'capIsNew': true, 'properties': true}],
         // disallow the omission of parentheses when invoking a constructor with no arguments
         'new-parens': 2,
         // require or disallow an empty newline after variable declarations
         'newline-after-var': 0,
+        // require newline before return statement
+        'newline-before-return': 0,
         // enforce newline after each call when chaining the calls
         'newline-per-chained-call': 0,
         // disallow use of the `Array` constructor
