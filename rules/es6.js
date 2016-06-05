@@ -24,49 +24,63 @@ module.exports = {
         'jsx': true,
     },
     'rules': {
-        // require braces in arrow function body
+        // require braces around arrow function bodies
         'arrow-body-style': [2, 'as-needed'],
-        // require parens in arrow function arguments
+        // require parentheses around arrow function arguments
         'arrow-parens': ,
-        // require space before/after arrow function's arrow (fixable)
+        // enforce consistent spacing before and after the arrow in arrow functions (fixable)
         'arrow-spacing': ,
-        // verify calls of `super()` in constructors (recommended)
+        // require super() calls in constructors (recommended)
         'constructor-super': ,
-        // enforce spacing around the `*` in generator functions (fixable)
+        // enforce consistent spacing around * operators in generator functions (fixable)
         'generator-star-spacing': ,
-        // disallow modifying variables of class declarations (recommended)
+        // disallow reassigning class members (recommended)
         'no-class-assign': ,
         // disallow arrow functions where they could be confused with comparisons
         'no-confusing-arrow': ,
-        // disallow modifying variables that are declared using `const` (recommended)
+        // disallow reassigning const variables (recommended)
         'no-const-assign': ,
-        // disallow duplicate name in class members (recommended)
+        // disallow duplicate class members (recommended)
         'no-dupe-class-members': ,
-        // disallow use of the `new` operator with the `Symbol` object (recommended)
+        // disallow duplicate module imports
+        'no-duplicate-imports': ,
+        // disallow new operators with the Symbol object (recommended)
         'no-new-symbol': ,
-        // disallow use of `this`/`super` before calling `super()` in constructors (recommended)
+        // disallow specified modules when loaded by import
+        'no-restricted-imports': ,
+        // disallow this/super before calling super() in constructors (recommended)
         'no-this-before-super': ,
-        // require `let` or `const` instead of `var`
-        'no-var': ,
-        // disallow unnecessary constructor
+        // disallow unnecessary computed property keys in object literals
+        'no-useless-computed-key': ,
+        // disallow unnecessary constructors
         'no-useless-constructor': ,
-        // require method and property shorthand syntax for object literals
+        // disallow renaming import, export, and destructured assignments to the same name (fixable)
+        'no-useless-rename': ,
+        // require let or const instead of var
+        'no-var': ,
+        // require or disallow method and property shorthand syntax for object literals
         'object-shorthand': ,
-        // suggest using arrow functions as callbacks
+        // require arrow functions as callbacks
         'prefer-arrow-callback': ,
-        // suggest using `const` declaration for variables that are never modified after declared
+        // require const declarations for variables that are never reassigned after declared
         'prefer-const': ,
-        // suggest using Reflect methods where applicable
+        // require Reflect methods where applicable
         'prefer-reflect': ,
-        // suggest using the rest parameters instead of `arguments`
+        // require rest parameters instead of arguments
         'prefer-rest-params': ,
-        // suggest using the spread operator instead of `.apply()`.
+        // require spread operators instead of .apply()
         'prefer-spread': ,
-        // suggest using template literals instead of strings concatenation
+        // require template literals instead of string concatenation
         'prefer-template': ,
-        // disallow generator functions that do not have `yield`
+        // require generator functions to contain yield
         'require-yield': ,
-        // enforce spacing around the `*` in `yield*` expressions (fixable)
+        // enforce spacing between rest and spread operators and their expressions (fixable)
+        'rest-spread-spacing': ,
+        // enforce sorted import declarations within modules
+        'sort-imports': 0,
+        // require or disallow spacing around embedded expressions of template strings (fixable)
+        'template-curly-spacing': ,
+        // require or disallow spacing around the * in yield* expressions (fixable)
         'yield-star-spacing': ,
     },
 };

@@ -107,8 +107,12 @@ module.exports = {
         'no-unneeded-ternary': 2,
         // disallow whitespace before properties
         'no-whitespace-before-property': 2,
+        // enforce consistent line breaks inside braces (fixable)
+        'object-curly-newline': [2, {'multiline': true, 'minProperties': 10}],
         // require or disallow padding inside curly braces (fixable)
         'object-curly-spacing': [2, 'never'],
+        // enforce placing object properties on separate lines
+        'object-property-newline': 0,
         // require or disallow one variable declaration per function
         'one-var': [2, {'uninitialized': 'always', 'initialized': 'never'}],
         // require or disallow an newline around variable declarations
@@ -133,8 +137,6 @@ module.exports = {
         'semi': [2, 'always'],
         // enforce spacing before and after semicolons (fixable)
         'semi-spacing': [2, {'before': false, 'after': true}],
-        // sort import declarations within module
-        'sort-imports': 0,
         // sort variables within the same declaration block
         'sort-vars': 0,
         // require or disallow a space before blocks (fixable)
@@ -161,6 +163,8 @@ module.exports = {
                 'exceptions': ['-', '+', '*', ','],
             },
         }],
+        // require or disallow the Unicode BOM (fixable)
+        'unicode-bom': 0,
         // require regex literals to be wrapped in parentheses
         'wrap-regex': 0,
     },
