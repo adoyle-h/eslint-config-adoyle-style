@@ -37,7 +37,7 @@
     "run-sequence": "^1.1.5"
   },
   "peerDependencies": {
-    "eslint": "~2.7.0"
+    "eslint": "~2.11.1"
   },
   "config": {
     "commitizen": {
