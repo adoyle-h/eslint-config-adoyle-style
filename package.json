@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-adoyle-style",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.",
   "main": "index.js",
   "scripts": {
