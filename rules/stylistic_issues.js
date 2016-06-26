@@ -53,6 +53,8 @@ module.exports = {
         'max-depth': [2, 4],
         // specify the maximum length of a line in your program
         'max-len': [2, {'code': 100, 'comments': 1024, 'tabWidth': 4, 'ignoreUrls': true, 'ignoreComments': true, 'ignoreTrailingComments': true}],
+        // enforce a maximum file length
+        'max-lines': 0,
         // specify the maximum depth callbacks can be nested
         'max-nested-callbacks': [1, 10],
         // limits the number of parameters that can be used in the function declaration.
@@ -81,6 +83,8 @@ module.exports = {
         'no-inline-comments': 0,
         // disallow `if` as the only statement in an `else` block
         'no-lonely-if': 0,
+        // disallow mixes of different operators
+        'no-mixed-operators': 1,
         // disallow mixed spaces and tabs for indentation (recommended)
         'no-mixed-spaces-and-tabs': 2,
         // disallow multiple empty lines
@@ -107,8 +111,12 @@ module.exports = {
         'no-unneeded-ternary': 2,
         // disallow whitespace before properties
         'no-whitespace-before-property': 2,
+        // enforce consistent line breaks inside braces (fixable)
+        'object-curly-newline': [2, {'multiline': true, 'minProperties': 10}],
         // require or disallow padding inside curly braces (fixable)
         'object-curly-spacing': [2, 'never'],
+        // enforce placing object properties on separate lines
+        'object-property-newline': 0,
         // require or disallow one variable declaration per function
         'one-var': [2, {'uninitialized': 'always', 'initialized': 'never'}],
         // require or disallow an newline around variable declarations
@@ -133,8 +141,6 @@ module.exports = {
         'semi': [2, 'always'],
         // enforce spacing before and after semicolons (fixable)
         'semi-spacing': [2, {'before': false, 'after': true}],
-        // sort import declarations within module
-        'sort-imports': 0,
         // sort variables within the same declaration block
         'sort-vars': 0,
         // require or disallow a space before blocks (fixable)
@@ -161,6 +167,8 @@ module.exports = {
                 'exceptions': ['-', '+', '*', ','],
             },
         }],
+        // require or disallow the Unicode BOM (fixable)
+        'unicode-bom': 0,
         // require regex literals to be wrapped in parentheses
         'wrap-regex': 0,
     },

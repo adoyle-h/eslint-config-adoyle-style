@@ -44,6 +44,8 @@ module.exports = {
         'no-negated-in-lhs': 2,
         // disallow the use of object properties of the global object (Math and JSON) as functions (recommended)
         'no-obj-calls': 2,
+        // Disallow use of Object.prototypes builtins directly
+        'no-prototype-builtins': 0,
         // disallow multiple spaces in a regular expression literal (recommended)
         'no-regex-spaces': 2,
         // disallow sparse arrays (recommended)
@@ -52,6 +54,8 @@ module.exports = {
         'no-unexpected-multiline': 2,
         // disallow unreachable statements after a return, throw, continue, or break statement (recommended)
         'no-unreachable': 2,
+        // disallow control flow statements in finally blocks
+        'no-unsafe-finally': 0,
         // disallow comparisons with the value NaN (recommended)
         'use-isnan': 2,
         // Ensure JSDoc comments are valid
