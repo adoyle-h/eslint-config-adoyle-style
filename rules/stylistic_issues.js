@@ -53,6 +53,8 @@ module.exports = {
         'max-depth': [2, 4],
         // specify the maximum length of a line in your program
         'max-len': [2, {'code': 100, 'comments': 1024, 'tabWidth': 4, 'ignoreUrls': true, 'ignoreComments': true, 'ignoreTrailingComments': true}],
+        // enforce a maximum file length
+        'max-lines': 0,
         // specify the maximum depth callbacks can be nested
         'max-nested-callbacks': [1, 10],
         // limits the number of parameters that can be used in the function declaration.
@@ -81,6 +83,8 @@ module.exports = {
         'no-inline-comments': 0,
         // disallow `if` as the only statement in an `else` block
         'no-lonely-if': 0,
+        // disallow mixes of different operators
+        'no-mixed-operators': 1,
         // disallow mixed spaces and tabs for indentation (recommended)
         'no-mixed-spaces-and-tabs': 2,
         // disallow multiple empty lines
