@@ -2,8 +2,6 @@
 // The following rules point out areas where you might have made mistakes.
 module.exports = {
     'rules': {
-        // disallow or enforce trailing commas (recommended)
-        'comma-dangle': [2, 'always-multiline'],
         // disallow assignment in conditional expressions (recommended)
         'no-cond-assign': [2, 'always'],
         // disallow use of console in the node environment (recommended)
@@ -54,8 +52,8 @@ module.exports = {
         'no-unexpected-multiline': 2,
         // disallow unreachable statements after a return, throw, continue, or break statement (recommended)
         'no-unreachable': 2,
-        // disallow control flow statements in finally blocks
-        'no-unsafe-finally': 0,
+        // disallow control flow statements in `finally` blocks (recommended)
+        'no-unsafe-finally': 2,
         // disallow comparisons with the value NaN (recommended)
         'use-isnan': 2,
         // Ensure JSDoc comments are valid

@@ -16,7 +16,7 @@ module.exports = {
         'no-shadow': [2, {
             'builtinGlobals': true,
             'hoist': 'all',
-            'allow': ['callback'],
+            'allow': ['Promise', 'callback'],
         }],
         // disallow shadowing of names such as `arguments`
         'no-shadow-restricted-names': 2,

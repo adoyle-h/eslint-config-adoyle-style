@@ -79,7 +79,7 @@ module.exports = {
         'no-multi-spaces': 2,
         // disallow use of multiline strings
         'no-multi-str': 0,
-        // disallow reassignments of native objects
+        // disallow assignments to native objects or read-only global variables (recommended)
         'no-native-reassign': [2, {'exceptions': []}],
         // disallow use of the `new` operator when not part of an assignment or comparison
         'no-new': 2,
