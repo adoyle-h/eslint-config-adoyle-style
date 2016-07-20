@@ -9,11 +9,13 @@ module.exports = {
             'arraysInArrays': false
         }],
         // disallow or enforce spaces inside of single line blocks (fixable)
-        'block-spacing': [2, 'never'],
+        'block-spacing': [2, 'always'],
         // enforce one true brace style
         'brace-style': [2, '1tbs', {'allowSingleLine': true}],
         // require camel case names
         'camelcase': [2, {'properties': 'always'}],
+        // require or disallow trailing commas (fixable)
+        'comma-dangle': [2, 'always-multiline'],
         // enforce spacing before and after comma (fixable)
         'comma-spacing': [2, {'before': false, 'after': true}],
         // enforce one true comma style
@@ -63,6 +65,8 @@ module.exports = {
         'max-statements': 0,
         // specify the maximum number of statements allowed per line
         'max-statements-per-line': 0,
+        // enforce newlines between operands of ternary expressions
+        'multiline-ternary': 0,
         // require a capital letter for constructors
         'new-cap': [2, {'newIsCap': true, 'capIsNew': true, 'properties': true}],
         // disallow the omission of parentheses when invoking a constructor with no arguments

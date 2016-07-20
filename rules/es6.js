@@ -8,39 +8,19 @@ module.exports = {
         'ecmaVersion': 6,
         'sourceType': 'module',
         'ecmaFeatures': {
-            'generators': false,
-            'objectLiteralDuplicateProperties': false,
+            'impliedStrict': true,
             'experimentalObjectRestSpread': true,
         }
     },
-    // 'ecmaFeatures': {
-    //     'arrowFunctions': true,
-    //     'blockBindings': true,
-    //     'classes': true,
-    //     'defaultParams': true,
-    //     'destructuring': true,
-    //     'forOf': true,
-    //     'generators': false,
-    //     'modules': true,
-    //     'objectLiteralComputedProperties': true,
-    //     'objectLiteralDuplicateProperties': false,
-    //     'objectLiteralShorthandMethods': true,
-    //     'objectLiteralShorthandProperties': true,
-    //     'restParams': true,
-    //     'spread': true,
-    //     'superInFunctions': true,
-    //     'templateStrings': true,
-    //     'jsx': true,
-    // },
     'rules': {
         // require braces around arrow function bodies
         'arrow-body-style': [2, 'as-needed'],
-        // require parentheses around arrow function arguments
-        'arrow-parens': 0,
+        // require parentheses around arrow function arguments (fixable)
+        'arrow-parens': [2, "always"],
         // enforce consistent spacing before and after the arrow in arrow functions (fixable)
         'arrow-spacing': [2, { before: true, after: true }],
         // require super() calls in constructors (recommended)
-        'constructor-super': 0,
+        'constructor-super': 2,
         // enforce consistent spacing around * operators in generator functions (fixable)
         'generator-star-spacing': [2, { before: false, after: true }],
         // disallow reassigning class members (recommended)
@@ -60,7 +40,7 @@ module.exports = {
         // disallow specified modules when loaded by import
         'no-restricted-imports': 0,
         // disallow this/super before calling super() in constructors (recommended)
-        'no-this-before-super': 0,
+        'no-this-before-super': 2,
         // disallow unnecessary computed property keys in object literals
         'no-useless-computed-key': 2,
         // disallow unnecessary constructors
@@ -71,19 +51,19 @@ module.exports = {
             'ignoreImport': false,
             'ignoreExport': false,
         }],
-        // require let or const instead of var
+        // require `let` or `const` instead of `var` (fixable)
         'no-var': 2,
-        // require or disallow method and property shorthand syntax for object literals
+        // require or disallow method and property shorthand syntax for object literals (fixable)
         'object-shorthand': [2, 'always', {
             'ignoreConstructors': false,
             'avoidQuotes': true,
         }],
         // require arrow functions as callbacks
         'prefer-arrow-callback': [2, {
-            'allowNamedFunctions': false,
+            'allowNamedFunctions': true,
             'allowUnboundThis': true,
         }],
-        // require const declarations for variables that are never reassigned after declared
+        // require `const` declarations for variables that are never reassigned after declared (fixable)
         'prefer-const': [2, {
             'destructuring': 'any',
             'ignoreReadBeforeAssign': true,
@@ -91,19 +71,19 @@ module.exports = {
         // require Reflect methods where applicable
         'prefer-reflect': 0,
         // require rest parameters instead of arguments
-        'prefer-rest-params': 2,
+        'prefer-rest-params': 1,
         // require spread operators instead of .apply()
         'prefer-spread': 0,
         // require template literals instead of string concatenation
         'prefer-template': 2,
-        // require generator functions to contain yield
-        'require-yield': 0,
+        // require generator functions to contain `yield` (recommended)
+        'require-yield': 1,
         // enforce spacing between rest and spread operators and their expressions (fixable)
         'rest-spread-spacing': [2, "never"],
         // enforce sorted import declarations within modules
         'sort-imports': 0,
         // require or disallow spacing around embedded expressions of template strings (fixable)
-        'template-curly-spacing': 2,
+        'template-curly-spacing': [2, "never"],
         // require or disallow spacing around the * in yield* expressions (fixable)
         'yield-star-spacing': [2, 'after'],
     },
