@@ -1,3 +1,13 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2016-07-24)
+
+
+### Bug Fixes
+
+* rm sourceType: 'module' for es5 ([4d39737](https://github.com/adoyle-h/eslint-config-adoyle-style/commit/4d39737))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2016-07-20)
 
