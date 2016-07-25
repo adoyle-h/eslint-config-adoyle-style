@@ -27,7 +27,6 @@
   "devDependencies": {
     "a-gulp-license": "^2.0.0",
     "config-sp": "^0.1.1",
-    "cz-conventional-changelog": "^1.1.5",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-bump": "^1.0.0",
@@ -42,10 +41,5 @@
     "eslint-plugin-import": "^1.11.1",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
