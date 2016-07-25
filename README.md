@@ -6,13 +6,15 @@
 
 A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.
 
-The configs for browser and server, both es5 and es6.
+The configs for browser and server. It supports ES5, ES6, and React/JSX.
 
 ## Installation
 
 ```bash
-npm install eslint-config-adoyle-style
+npm install -D eslint-config-adoyle-style
 ```
+
+It is just an eslint config. You should install `eslint` by yourself.
 
 ## Usage
 
@@ -27,7 +29,7 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 
 **It's default for ES5 syntax:**
 
-```
+```js
 {
   "extends": "adoyle-style"
 }
@@ -35,7 +37,7 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 
 or
 
-```
+```js
 {
   "extends": "adoyle-style/node_es5"
 }
@@ -43,11 +45,11 @@ or
 
 additional ES6 syntax:
 
-```
+```js
 {
   "extends": [
-      "adoyle-style",
-      "adoyle-style/node_es6"
+    "adoyle-style",
+    "adoyle-style/es6"
   ],
 }
 ```
@@ -56,7 +58,7 @@ additional ES6 syntax:
 
 **It's default for ES5 syntax:**
 
-```
+```js
 {
   "extends": "adoyle-style/browser"
 }
@@ -64,36 +66,55 @@ additional ES6 syntax:
 
 additional ES6 syntax:
 
-```
+```js
 {
   "extends": [
-      "adoyle-style/browser",
-      "adoyle-style/node_es6"
+    "adoyle-style/browser",
+    "adoyle-style/es6",
   ],
 }
 ```
+
+additional React/JSX support:
+
+```js
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "adoyle-style/browser",
+    "adoyle-style/es6",
+    "adoyle-style/react",
+  ],
+}
+```
+
+**Attention!**
+
+You should install `eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react` by yourself when using the `adoyle-style/react`. And each package's version should under the `optionalDependencies`.
+
+You should use `babel-eslint` instead of `eslint` as parser for ES6+ syntax.
 
 ### For Test
 
 **It's default for ES5 syntax:**
 
-```
+```js
 {
   "extends": [
-      "adoyle-style",
-      "adoyle-style/test"
+    "adoyle-style",
+    "adoyle-style/test"
   ],
 }
 ```
 
 additional ES6 syntax:
 
-```
+```js
 {
   "extends": [
-      "adoyle-style",
-      "adoyle-style/test",
-      "adoyle-style/node_es6"
+    "adoyle-style",
+    "adoyle-style/test",
+    "adoyle-style/es6"
   ],
 }
 ```
