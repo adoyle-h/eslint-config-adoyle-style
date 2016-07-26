@@ -147,7 +147,7 @@ module.exports = {
 
         // Prevent multiple component definition per file
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
-        'react/no-multi-comp': [2, {
+        'react/no-multi-comp': [1, {
             ignoreStateless: true,
         }],
 
