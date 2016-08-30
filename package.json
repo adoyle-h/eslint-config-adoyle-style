@@ -40,6 +40,6 @@
   "optionalDependencies": {
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.1",
-    "eslint-plugin-react": "^5.2.2"
+    "eslint-plugin-react": "^6.2.0"
   }
 }

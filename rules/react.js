@@ -51,7 +51,7 @@ module.exports = {
 
         // Validate props indentation in JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent-props.md
-        'react/jsx-indent-props': [2, 2],
+        'react/jsx-indent-props': [2, 4],
 
         // Validate JSX has key prop when in array or iterator
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
@@ -74,7 +74,7 @@ module.exports = {
         // Prevent duplicate props in JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
         'react/jsx-no-duplicate-props': [0, {
-            ignoreCase: false,
+            ignoreCase: true,
         }],
 
         // Prevent usage of unwrapped JSX strings
@@ -97,6 +97,7 @@ module.exports = {
         'react/sort-prop-types': [0, {
             ignoreCase: false,
             callbacksLast: false,
+            requiredFirst: true,
         }],
 
         // Deprecated in favor of react/jsx-sort-props
@@ -107,13 +108,13 @@ module.exports = {
         'react/jsx-sort-props': [0, {
             ignoreCase: false,
             callbacksLast: false,
+            shorthandFirst: false,
+            shorthandLast: false,
         }],
 
         // Prevent React to be incorrectly marked as unused
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
-        'react/jsx-uses-react': [2, {
-            pragma: 'React',
-        }],
+        'react/jsx-uses-react': 2,
 
         // Prevent variables used in JSX to be incorrectly marked as unused
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
@@ -125,17 +126,15 @@ module.exports = {
 
         // Prevent usage of deprecated methods
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
-        'react/no-deprecated': [1, {
-            react: '0.14.0',
-        }],
+        'react/no-deprecated': 2,
 
         // Prevent usage of setState in componentDidMount
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-        'react/no-did-mount-set-state': [2, 'allow-in-func'],
+        'react/no-did-mount-set-state': 2,
 
         // Prevent usage of setState in componentDidUpdate
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
-        'react/no-did-update-set-state': [2, 'allow-in-func'],
+        'react/no-did-update-set-state': 2,
 
         // Prevent direct mutation of this.state
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
@@ -185,7 +184,7 @@ module.exports = {
         // Restrict file extensions that may be required
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
         'react/require-extension': [0, {
-            extensions: ['.jsx'],
+            extensions: ['.jsx', '.js'],
         }],
 
         // Require render() methods to return something
@@ -215,8 +214,8 @@ module.exports = {
         }],
 
         // Prevent missing parentheses around multilines JSX
-        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/wrap-multilines.md
-        'react/wrap-multilines': [2, {
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
+        'react/jsx-wrap-multilines': [2, {
             declaration: true,
             assignment: true,
             return: true,
@@ -232,12 +231,47 @@ module.exports = {
 
         // Enforce JSX indentation
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
-        'react/jsx-indent': [2, 2],
+        'react/jsx-indent': [2, 4],
 
         // Disallow target="_blank" on links
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-        // TODO: enable
-        'react/jsx-no-target-blank': 0,
+        'react/jsx-no-target-blank': 2,
+
+        // only .jsx files may have JSX
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+        'react/jsx-filename-extension': ['error', {
+            extensions: ['.jsx']
+        }],
+
+        // prevent accidental JS comments from being injected into JSX as text
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
+        'react/jsx-no-comment-textnodes': 'error',
+        'react/no-comment-textnodes': 'off', // deprecated version
+
+        // disallow using React.render/ReactDOM.render's return value
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
+        'react/no-render-return-value': 'error',
+
+        // require a shouldComponentUpdate method, or PureRenderMixin
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
+        'react/require-optimization': ['off', {
+            allowDecorators: []
+        }],
+
+        // warn against using findDOMNode()
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+        'react/no-find-dom-node': 'error',
+
+        // Forbid certain props on Components
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
+        'react/forbid-component-props': ['off', {
+            forbid: []
+        }],
+
+        // Prevent problem with children and props.dangerouslySetInnerHTML
+        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
+        // TODO: enable, semver-major
+        'react/no-danger-with-children': 'off',
     },
 
     settings: {
