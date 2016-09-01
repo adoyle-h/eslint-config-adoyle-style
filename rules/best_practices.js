@@ -102,7 +102,8 @@ module.exports = {
         // disallow declaring the same variable more than once (recommended)
         'no-redeclare': 2,
         // disallow use of assignment in `return` statement
-        'no-return-assign': [2, 'always'],
+        // @TODO Upgrade to Error. When Arrow function could return assignment
+        'no-return-assign': [1, 'always'],
         // disallow use of `javascript:` urls.
         'no-script-url': 0,
         // disallow assignments where both sides are exactly the same (recommended)
