@@ -1,4 +1,3 @@
-'use strict';
 // These rules relate to using strict mode and strict mode directives.
 module.exports = {
     'rules': {

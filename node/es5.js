@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
     extends: [
         'best_practices',
@@ -8,16 +7,12 @@ module.exports = {
         'stylistic_issues',
         'variables',
     ].map(function(path) {
-        return require.resolve('./rules/' + path);
+        return require.resolve('../common_rules/' + path);
     }),
     env: {
-        browser: true,
-        node: false,
+        node: true,
     },
-    ecmaFeatures: {},
-    globals: {},
-    rules: {
-        'no-alert': 2,
-        'no-script-url': 2,
+    parserOptions: {
+        ecmaVersion: 5,
     },
 };

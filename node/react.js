@@ -5,6 +5,6 @@ module.exports = {
         'react-a11y',
         'import',
     ].map(function(path) {
-        return require.resolve('./rules/' + path);
+        return require.resolve('../common_rules/' + path);
     }),
 };

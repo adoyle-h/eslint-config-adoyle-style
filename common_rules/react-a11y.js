@@ -1,4 +1,3 @@
-'use strict';
 'jsx-a11y/';
 
 module.exports = {
