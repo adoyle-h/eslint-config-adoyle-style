@@ -8,7 +8,8 @@ module.exports = {
             'arraysInArrays': false
         }],
         // disallow or enforce spaces inside of single line blocks (fixable)
-        'block-spacing': [2, 'always'],
+        // @Maybe ignore it
+        'block-spacing': [0, 'never'],
         // enforce one true brace style
         'brace-style': [2, '1tbs', {'allowSingleLine': true}],
         // require camel case names
