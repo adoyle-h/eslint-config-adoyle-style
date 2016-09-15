@@ -1,4 +1,3 @@
-'use strict';
 // These rules are only relevant to ES6 environments.
 module.exports = {
     'env': {

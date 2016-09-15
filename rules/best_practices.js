@@ -1,4 +1,3 @@
-'use strict';
 // These are rules designed to prevent you from making mistakes. They either prescribe a better way of doing something or help you avoid footguns.
 module.exports = {
     'rules': {
@@ -15,9 +14,9 @@ module.exports = {
         // specify curly brace conventions for all control statements
         'curly': [2, 'multi-line', 'consistent'],
         // require `default` case in `switch` statements
-        'default-case': 2,
+        'default-case': [2, {'commentPattern': '^no default$'}],
         // enforces consistent newlines before or after dots
-        'dot-location': 0,
+        'dot-location': [2, 'property'],
         // encourages use of dot notation whenever possible
         'dot-notation': 0,
         // require the use of `===` and `!==`
@@ -35,7 +34,12 @@ module.exports = {
         // disallow `else` after a `return` in an `if`
         'no-else-return': 0,
         // disallow use of empty functions
-        'no-empty-function': 1,
+        'no-empty-function': [2, {
+            'allow': [
+                'arrowFunctions',
+                'methods',
+            ],
+        }],
         // disallow use of empty destructuring patterns (recommended)
         'no-empty-pattern': 2,
         // disallow comparisons to null without a type-checking operator
@@ -52,6 +56,8 @@ module.exports = {
         'no-fallthrough': 2,
         // disallow the use of leading or trailing decimal points in numeric literals
         'no-floating-decimal': 2,
+        // Disallow assignment to native objects or read-only global variables
+        'no-global-assign': [2, {'exceptions': []}],
         // disallow the type conversions with shorter notations
         'no-implicit-coercion': 1,
         // disallow `var` and named functions in global scope
@@ -79,8 +85,6 @@ module.exports = {
         'no-multi-spaces': 2,
         // disallow use of multiline strings
         'no-multi-str': 0,
-        // disallow assignments to native objects or read-only global variables (recommended)
-        'no-native-reassign': [2, {'exceptions': []}],
         // disallow use of the `new` operator when not part of an assignment or comparison
         'no-new': 2,
         // disallow use of new operator for `Function` object
@@ -112,7 +116,10 @@ module.exports = {
         // disallow unmodified conditions of loops
         'no-unmodified-loop-condition': 2,
         // disallow usage of expressions in statement position
-        'no-unused-expressions': 2,
+        'no-unused-expressions': [2, {
+          'allowShortCircuit': false,
+          'allowTernary': false,
+        }],
         // disallow unused labels (recommended)
         'no-unused-labels': 2,
         // disallow unnecessary `.call()` and `.apply()`
@@ -120,7 +127,7 @@ module.exports = {
         // disallow unnecessary concatenation of literals or template literals
         'no-useless-concat': 2,
         // disallow unnecessary usage of escape character
-        'no-useless-escape': 1,
+        'no-useless-escape': 2,
         // disallow use of the `void` operator
         'no-void': 2,
         // disallow usage of configurable warning terms in comments - e.g. `TODO` or `FIXME`

@@ -1,4 +1,3 @@
-'use strict';
 // The following rules point out areas where you might have made mistakes.
 module.exports = {
     'rules': {
@@ -27,7 +26,11 @@ module.exports = {
         // disallow double-negation boolean casts in a boolean context (recommended)
         'no-extra-boolean-cast': 0,
         // disallow unnecessary parentheses
-        'no-extra-parens': [2, 'functions'],
+        'no-extra-parens': [2, 'all', {
+            'conditionalAssign': false,
+            'returnAssign': false,
+            'nestedBinaryExpressions': false,
+        }],
         // disallow unnecessary semicolons (recommended) (fixable)
         'no-extra-semi': 2,
         // disallow overwriting functions written as function declarations (recommended)
@@ -38,22 +41,24 @@ module.exports = {
         'no-invalid-regexp': 2,
         // disallow irregular whitespace outside of strings and comments (recommended)
         'no-irregular-whitespace': 2,
-        // disallow negation of the left operand of an in expression (recommended)
-        'no-negated-in-lhs': 2,
         // disallow the use of object properties of the global object (Math and JSON) as functions (recommended)
         'no-obj-calls': 2,
         // Disallow use of Object.prototypes builtins directly
-        'no-prototype-builtins': 0,
+        'no-prototype-builtins': 1,
         // disallow multiple spaces in a regular expression literal (recommended)
         'no-regex-spaces': 2,
         // disallow sparse arrays (recommended)
         'no-sparse-arrays': 2,
+        // Disallow template literal placeholder syntax in regular strings
+        'no-template-curly-in-string': 2,
         // Avoid code that looks like two expressions but is actually one
         'no-unexpected-multiline': 2,
         // disallow unreachable statements after a return, throw, continue, or break statement (recommended)
         'no-unreachable': 2,
         // disallow control flow statements in `finally` blocks (recommended)
         'no-unsafe-finally': 2,
+        // disallow negating the left operand of relational operators
+        'no-unsafe-negation': 2,
         // disallow comparisons with the value NaN (recommended)
         'use-isnan': 2,
         // Ensure JSDoc comments are valid

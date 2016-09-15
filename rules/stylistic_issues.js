@@ -1,4 +1,3 @@
-'use strict';
 // These rules are purely matters of style and are quite subjective.
 module.exports = {
     'rules': {
@@ -26,6 +25,8 @@ module.exports = {
         'consistent-this': 0,
         // enforce newline at the end of file, with no multiple empty lines (fixable)
         'eol-last': 2,
+        // require or disallow spacing between function identifiers and their invocations
+        'func-call-spacing': [2, 'never'],
         // require function expressions to have a name
         'func-names': 0,
         // enforce use of function declarations or expressions
@@ -86,7 +87,7 @@ module.exports = {
         // disallow comments inline after code
         'no-inline-comments': 0,
         // disallow `if` as the only statement in an `else` block
-        'no-lonely-if': 0,
+        'no-lonely-if': 1,
         // disallow mixes of different operators
         'no-mixed-operators': 1,
         // disallow mixed spaces and tabs for indentation (recommended)
@@ -103,8 +104,8 @@ module.exports = {
         'no-plusplus': 0,
         // disallow use of certain syntax in code
         'no-restricted-syntax': [2, 'WithStatement'],
-        // disallow space between function identifier and application (fixable)
-        'no-spaced-func': 2,
+        // Disallow tabs in file
+        'no-tabs': 2,
         // disallow the use of ternary operators
         'no-ternary': 0,
         // disallow trailing whitespace at the end of lines (fixable)
@@ -135,16 +136,18 @@ module.exports = {
         'quote-props': [2, 'as-needed', {
             'keywords': false,
             'unnecessary': false,
-            'numbers': true,
+            'numbers': false,
         }],
         // specify whether backticks, double or single quotes should be used (fixable)
-        'quotes': [2, 'single'],
+        'quotes': [2, 'single', {'allowTemplateLiterals': true}],
         // Require JSDoc comment
         'require-jsdoc': 0,
         // require or disallow use of semicolons instead of ASI (fixable)
         'semi': [2, 'always'],
         // enforce spacing before and after semicolons (fixable)
         'semi-spacing': [2, {'before': false, 'after': true}],
+        // requires object keys to be sorted
+        'sort-keys': 0,
         // sort variables within the same declaration block
         'sort-vars': 0,
         // require or disallow a space before blocks (fixable)

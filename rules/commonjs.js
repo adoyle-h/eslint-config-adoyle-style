@@ -1,4 +1,3 @@
-'use strict';
 // These rules are specific to JavaScript running on Node.js or using CommonJS in the browser.
 module.exports = {
     'rules': {
