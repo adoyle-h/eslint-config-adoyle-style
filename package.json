@@ -23,6 +23,9 @@
     "url": "https://github.com/adoyle-h/eslint-config-adoyle-style/issues"
   },
   "homepage": "https://github.com/adoyle-h/eslint-config-adoyle-style#readme",
+  "engines": {
+    "node": ">=4.5.0"
+  },
   "dependencies": {},
   "devDependencies": {
     "a-gulp-license": "^2.0.0",
