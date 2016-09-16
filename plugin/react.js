@@ -1,3 +1,5 @@
+require('eslint-plugin-react');
+
 module.exports = {
     plugins: [
         'react',

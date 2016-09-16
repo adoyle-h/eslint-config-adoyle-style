@@ -1,3 +1,5 @@
+require('eslint-plugin-import');
+
 module.exports = {
     plugins: [
         'import',

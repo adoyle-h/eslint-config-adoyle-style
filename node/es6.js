@@ -2,10 +2,12 @@ module.exports = {
     extends: [
         'es6',
     ].map(function(path) {
-        return require.resolve('../common_rules/' + path);
+        return require.resolve('../eslint/' + path);
     }),
     env: {
-        node: true,
         es6: true,
+    },
+    parserOptions: {
+        ecmaVersion: 6,
     },
 };

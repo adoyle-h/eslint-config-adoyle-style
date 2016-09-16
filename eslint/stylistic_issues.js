@@ -140,7 +140,7 @@ module.exports = {
             'numbers': false,
         }],
         // specify whether backticks, double or single quotes should be used (fixable)
-        'quotes': [2, 'single', {'allowTemplateLiterals': true}],
+        'quotes': [2, 'single', {'avoidEscape': false, 'allowTemplateLiterals': true}],
         // Require JSDoc comment
         'require-jsdoc': 0,
         // require or disallow use of semicolons instead of ASI (fixable)

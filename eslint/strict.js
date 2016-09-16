@@ -4,4 +4,9 @@ module.exports = {
         // require effective use of strict mode directives
         'strict': [2, 'safe'],
     },
+    'parserOptions': {
+        'ecmaFeatures': {
+            'impliedStrict': true,   // because require node >= 4.5.0
+        }
+    },
 };

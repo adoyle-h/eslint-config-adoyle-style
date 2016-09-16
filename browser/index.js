@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
     extends: [
         'best_practices',
@@ -8,13 +7,15 @@ module.exports = {
         'stylistic_issues',
         'variables',
     ].map(function(path) {
-        return require.resolve('../common_rules/' + path);
+        return require.resolve('../eslint/' + path);
     }),
     env: {
         browser: true,
         node: false,
     },
-    ecmaFeatures: {},
+    parserOptions: {
+        ecmaVersion: 5,
+    },
     globals: {},
     rules: {
         'no-alert': 2,
