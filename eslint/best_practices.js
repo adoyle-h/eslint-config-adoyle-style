@@ -30,7 +30,7 @@ module.exports = {
         // disallow lexical declarations in case clauses (recommended)
         'no-case-declarations': 2,
         // disallow division operators explicitly at beginning of regular expression
-        'no-div-regex': 2,
+        'no-div-regex': 0,
         // disallow `else` after a `return` in an `if`
         'no-else-return': 0,
         // disallow use of empty functions
