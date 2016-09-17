@@ -56,7 +56,14 @@ module.exports = {
         // specify the maximum depth that blocks can be nested
         'max-depth': [2, 4],
         // specify the maximum length of a line in your program
-        'max-len': [2, {'code': 100, 'comments': 1024, 'tabWidth': 4, 'ignoreUrls': true, 'ignoreComments': true, 'ignoreTrailingComments': true}],
+        'max-len': [2, {
+            'code': 100, 'comments': 1024, 'tabWidth': 4,
+            'ignoreUrls': true,
+            'ignoreComments': true,
+            'ignoreTrailingComments': true,
+            'ignoreStrings': true,
+            'ignoreTemplateLiterals': true,
+        }],
         // enforce a maximum file length
         'max-lines': 0,
         // specify the maximum depth callbacks can be nested
@@ -179,5 +186,9 @@ module.exports = {
         'unicode-bom': 0,
         // require regex literals to be wrapped in parentheses
         'wrap-regex': 0,
+        // enforce position of line comments
+        'line-comment-position': 0,
+        // require or disallow newlines around directives<Paste>
+        'lines-around-directive': 0,
     },
 };

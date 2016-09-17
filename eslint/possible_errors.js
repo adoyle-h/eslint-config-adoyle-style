@@ -64,6 +64,6 @@ module.exports = {
         // Ensure JSDoc comments are valid
         'valid-jsdoc': 0,
         // Ensure that the results of typeof are compared against a valid string (recommended)
-        'valid-typeof': 2,
+        'valid-typeof': [2, {'requireStringLiterals': true}],
     },
 };

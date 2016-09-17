@@ -143,5 +143,7 @@ module.exports = {
         'wrap-iife': [2, 'inside'],
         // require or disallow Yoda conditions
         'yoda': [2, 'never', {'exceptRange': true, 'onlyEquality': false}],
+        // Enforce that class methods utilize this
+        'class-methods-use-this': 0,
     },
 };
