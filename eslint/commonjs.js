@@ -1,4 +1,3 @@
-'use strict';
 // These rules are specific to JavaScript running on Node.js or using CommonJS in the browser.
 module.exports = {
     'rules': {
@@ -22,5 +21,7 @@ module.exports = {
         'no-restricted-modules': 0,
         // disallow use of synchronous methods
         'no-sync': 0,
+        // disallow certain object properties
+        'no-restricted-properties': 0,
     },
 };

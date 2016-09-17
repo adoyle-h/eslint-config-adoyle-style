@@ -6,13 +6,15 @@
 
 A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.
 
-The configs for browser and server, both es5 and es6.
+The configs for browser and server. It supports ES5, ES6, and React/JSX.
 
 ## Installation
 
 ```bash
-npm install eslint-config-adoyle-style
+npm install -D eslint-config-adoyle-style
 ```
+
+It is just an eslint config. You should install `eslint` by yourself.
 
 ## Usage
 
@@ -27,27 +29,19 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 
 **It's default for ES5 syntax:**
 
-```
+```js
 {
-  "extends": "adoyle-style"
-}
-```
-
-or
-
-```
-{
-  "extends": "adoyle-style/node_es5"
+  "extends": "adoyle-style/node"
 }
 ```
 
 additional ES6 syntax:
 
-```
+```js
 {
   "extends": [
-      "adoyle-style",
-      "adoyle-style/node_es6"
+    "adoyle-style/node",
+    "adoyle-style/node/es6"
   ],
 }
 ```
@@ -56,7 +50,7 @@ additional ES6 syntax:
 
 **It's default for ES5 syntax:**
 
-```
+```js
 {
   "extends": "adoyle-style/browser"
 }
@@ -64,45 +58,60 @@ additional ES6 syntax:
 
 additional ES6 syntax:
 
-```
+```js
 {
   "extends": [
-      "adoyle-style/browser",
-      "adoyle-style/node_es6"
+    "adoyle-style/browser",
+    "adoyle-style/browser/es6",
   ],
 }
 ```
+
+### Additional Plugins
+
+additional React/JSX support:
+
+```js
+{
+  "extends": [
+    "adoyle-style/browser",
+    "adoyle-style/browser/es6",
+    "adoyle-style/plugin/import",
+    "adoyle-style/plugin/react-a11y",
+    "adoyle-style/plugin/react",
+  ],
+}
+```
+
+additional import support:
+
+```js
+{
+  "extends": [
+    "adoyle-style/node",
+    "adoyle-style/node/es6",
+    "adoyle-style/plugin/import",
+  ],
+}
+```
+
+**Attention!**
+
+You should install each devDependency by yourself when using the `adoyle-style/plugin/*`. And each package's version should under the `optionalDependencies`. Such as `eslint-plugin-jsx-a11y`, `eslint-plugin-import`, `eslint-plugin-react`.
+
+You should use `babel-eslint` instead of `eslint` as parser for ES6+ syntax.
 
 ### For Test
 
-**It's default for ES5 syntax:**
-
-```
-{
-  "extends": [
-      "adoyle-style",
-      "adoyle-style/test"
-  ],
-}
-```
-
-additional ES6 syntax:
-
-```
-{
-  "extends": [
-      "adoyle-style",
-      "adoyle-style/test",
-      "adoyle-style/node_es6"
-  ],
-}
-```
+@TODO
 
 ## Versioning
 
 The versioning follows the rules of SemVer 2.0.0.
 
 **BUT**, anything may have **BREAKING CHANGES** at **ANY TIME** when major version is zero (0.y.z), which is for initial development and the public API should not be considered stable.
+
+When major version is zero, You should save it with prefix `~`.
 
 For more information on SemVer, please visit http://semver.org/.
 

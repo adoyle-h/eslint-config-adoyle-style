@@ -1,4 +1,3 @@
-'use strict';
 // These rules are only relevant to ES6 environments.
 module.exports = {
     'env': {
@@ -8,13 +7,13 @@ module.exports = {
         'ecmaVersion': 6,
         'sourceType': 'module',
         'ecmaFeatures': {
-            'impliedStrict': true,
             'experimentalObjectRestSpread': true,
         }
     },
     'rules': {
         // require braces around arrow function bodies
-        'arrow-body-style': [2, 'as-needed'],
+        // @TODO Upgrade to error
+        'arrow-body-style': [1, 'as-needed'],
         // require parentheses around arrow function arguments (fixable)
         'arrow-parens': [2, "always"],
         // enforce consistent spacing before and after the arrow in arrow functions (fixable)
@@ -86,5 +85,9 @@ module.exports = {
         'template-curly-spacing': [2, "never"],
         // require or disallow spacing around the * in yield* expressions (fixable)
         'yield-star-spacing': [2, 'after'],
+        // disallow parseInt() in favor of binary, octal, and hexadecimal literals
+        'prefer-numeric-literals: 0,
+        // require symbol descriptions
+        'symbol-description': 0,
     },
 };

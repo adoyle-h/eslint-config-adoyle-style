@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-adoyle-style",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.",
   "main": "index.js",
   "scripts": {
@@ -23,11 +23,13 @@
     "url": "https://github.com/adoyle-h/eslint-config-adoyle-style/issues"
   },
   "homepage": "https://github.com/adoyle-h/eslint-config-adoyle-style#readme",
+  "engines": {
+    "node": ">=4.5.0"
+  },
   "dependencies": {},
   "devDependencies": {
     "a-gulp-license": "^2.0.0",
     "config-sp": "^0.1.1",
-    "cz-conventional-changelog": "^1.1.5",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-bump": "^1.0.0",
@@ -36,11 +38,11 @@
     "run-sequence": "^1.1.5"
   },
   "peerDependencies": {
-    "eslint": "~3.1.0"
+    "eslint": "~3.5.0"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "optionalDependencies": {
+    "eslint-plugin-import": "~1.15.0",
+    "eslint-plugin-jsx-a11y": "~2.2.2",
+    "eslint-plugin-react": "~6.2.2"
   }
 }
