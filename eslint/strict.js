@@ -2,7 +2,8 @@
 module.exports = {
     'rules': {
         // require effective use of strict mode directives
-        'strict': [2, 'safe'],
+        // see http://adoyle.me/blog/implicit-strict-mode.html
+        'strict': [2, 'never'],
     },
     'parserOptions': {
         'ecmaFeatures': {
