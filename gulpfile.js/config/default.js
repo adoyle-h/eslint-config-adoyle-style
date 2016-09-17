@@ -20,9 +20,9 @@ var config = {
             },
             license: {
                 src: [
-                    'rules/**/*', '*.js', 'package.json', 'README.md',
+                    'node/**/*.js', 'browser/**/*.js', 'eslint/**/*.js', 'plugin/**/*.js',
+                    'package.json', 'README.md',
                     'LICENSE', 'NOTICE',
-                    '!**/*._*', '!**/.DS_Store', '!gulpfile.js'
                 ],
                 srcOpts: {
                     base: './',
