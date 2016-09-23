@@ -20,7 +20,7 @@ var config = {
             },
             license: {
                 src: [
-                    'node/**/*.js', 'browser/**/*.js', 'eslint/**/*.js', 'plugin/**/*.js',
+                    'lib/**/*.js', 'node/**/*.js', 'browser/**/*.js', 'eslint/**/*.js', 'plugin/**/*.js',
                     'package.json', 'README.md',
                     'LICENSE', 'NOTICE',
                 ],
