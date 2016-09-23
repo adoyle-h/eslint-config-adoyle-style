@@ -86,7 +86,7 @@ module.exports = {
         // require or disallow spacing around the * in yield* expressions (fixable)
         'yield-star-spacing': [2, 'after'],
         // disallow parseInt() in favor of binary, octal, and hexadecimal literals
-        'prefer-numeric-literals: 0,
+        'prefer-numeric-literals': 0,
         // require symbol descriptions
         'symbol-description': 0,
     },
