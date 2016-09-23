@@ -1,4 +1,7 @@
-require('eslint-plugin-react');
+'use strict';
+
+const util = require('../lib/util');
+util.checkPlugin('eslint-plugin-react');
 
 module.exports = {
     plugins: [

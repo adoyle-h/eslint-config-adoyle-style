@@ -1,4 +1,7 @@
-require('eslint-plugin-jsx-a11y');
+'use strict';
+
+const util = require('../lib/util');
+util.checkPlugin('eslint-plugin-jsx-a11y');
 
 module.exports = {
     plugins: [

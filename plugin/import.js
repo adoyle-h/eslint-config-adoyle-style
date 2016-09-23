@@ -1,4 +1,7 @@
-require('eslint-plugin-import');
+'use strict';
+
+const util = require('../lib/util');
+util.checkPlugin('eslint-plugin-import');
 
 module.exports = {
     plugins: [
@@ -48,6 +51,6 @@ module.exports = {
         'import/newline-after-import': 2,
         'import/prefer-default-export': 2,
         'import/no-restricted-paths': 0,
-        'no-absolute-path': 2,
+        'import/no-absolute-path': 2,
     },
 };
