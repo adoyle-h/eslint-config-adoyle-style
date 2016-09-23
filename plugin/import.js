@@ -1,4 +1,7 @@
-require.resolve('eslint-plugin-import');
+'use strict';
+
+const util = require('../lib/util');
+util.checkPlugin('eslint-plugin-import');
 
 module.exports = {
     plugins: [
