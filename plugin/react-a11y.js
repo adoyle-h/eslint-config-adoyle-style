@@ -1,4 +1,4 @@
-require('eslint-plugin-jsx-a11y');
+require.resolve('eslint-plugin-jsx-a11y');
 
 module.exports = {
     plugins: [

@@ -1,4 +1,4 @@
-require('eslint-plugin-import');
+require.resolve('eslint-plugin-import');
 
 module.exports = {
     plugins: [

@@ -1,4 +1,4 @@
-require('eslint-plugin-react');
+require.resolve('eslint-plugin-react');
 
 module.exports = {
     plugins: [
