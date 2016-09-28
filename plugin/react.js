@@ -219,7 +219,8 @@ module.exports = {
 
         // Prevent missing parentheses around multilines JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
-        'react/jsx-wrap-multilines': [2, {
+        // @Attention it is opposite to no-extra-parens
+        'react/jsx-wrap-multilines': [0, {
             declaration: true,
             assignment: true,
             return: true,
