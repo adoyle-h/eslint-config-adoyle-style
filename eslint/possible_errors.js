@@ -26,7 +26,7 @@ module.exports = {
         // disallow double-negation boolean casts in a boolean context (recommended)
         'no-extra-boolean-cast': 0,
         // disallow unnecessary parentheses
-        'no-extra-parens': [2, 'all', {
+        'no-extra-parens': [0, 'all', {
             'conditionalAssign': false,
             'returnAssign': false,
             'nestedBinaryExpressions': false,
