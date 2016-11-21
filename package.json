@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/adoyle-h/eslint-config-adoyle-style#readme",
   "engines": {
-    "node": ">=4.5.0"
+    "node": ">=6.9.1"
   },
   "dependencies": {},
   "devDependencies": {
@@ -38,7 +38,7 @@
     "run-sequence": "^1.1.5"
   },
   "peerDependencies": {
-    "eslint": "~3.5.0"
+    "eslint": "~3.9.1"
   },
   "optionalDependencies": {
     "eslint-plugin-import": "~1.15.0",
