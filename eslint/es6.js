@@ -12,8 +12,7 @@ module.exports = {
     },
     'rules': {
         // require braces around arrow function bodies
-        // @TODO Upgrade to error
-        'arrow-body-style': [1, 'as-needed'],
+        'arrow-body-style': [0, 'as-needed'],
         // require parentheses around arrow function arguments (fixable)
         'arrow-parens': [2, "always"],
         // enforce consistent spacing before and after the arrow in arrow functions (fixable)
