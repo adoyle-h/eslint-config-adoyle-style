@@ -1,6 +1,8 @@
 // The following rules point out areas where you might have made mistakes.
 module.exports = {
     'rules': {
+        // disallow await inside of loops
+        'no-await-in-loop': 2,
         // disallow assignment in conditional expressions (recommended)
         'no-cond-assign': [2, 'always'],
         // disallow use of console in the node environment (recommended)

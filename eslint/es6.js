@@ -8,19 +8,19 @@ module.exports = {
         'sourceType': 'module',
         'ecmaFeatures': {
             'experimentalObjectRestSpread': true,
-        }
+        },
     },
     'rules': {
         // require braces around arrow function bodies
         'arrow-body-style': [0, 'as-needed'],
         // require parentheses around arrow function arguments (fixable)
-        'arrow-parens': [2, "always"],
+        'arrow-parens': [2, 'always'],
         // enforce consistent spacing before and after the arrow in arrow functions (fixable)
-        'arrow-spacing': [2, { before: true, after: true }],
+        'arrow-spacing': [2, {before: true, after: true}],
         // require super() calls in constructors (recommended)
         'constructor-super': 2,
         // enforce consistent spacing around * operators in generator functions (fixable)
-        'generator-star-spacing': [2, { before: false, after: true }],
+        'generator-star-spacing': [2, {before: false, after: true}],
         // disallow reassigning class members (recommended)
         'no-class-assign': 2,
         // disallow arrow functions where they could be confused with comparisons
@@ -77,11 +77,11 @@ module.exports = {
         // require generator functions to contain `yield` (recommended)
         'require-yield': 1,
         // enforce spacing between rest and spread operators and their expressions (fixable)
-        'rest-spread-spacing': [2, "never"],
+        'rest-spread-spacing': [2, 'never'],
         // enforce sorted import declarations within modules
         'sort-imports': 0,
         // require or disallow spacing around embedded expressions of template strings (fixable)
-        'template-curly-spacing': [2, "never"],
+        'template-curly-spacing': [2, 'never'],
         // require or disallow spacing around the * in yield* expressions (fixable)
         'yield-star-spacing': [2, 'after'],
         // disallow parseInt() in favor of binary, octal, and hexadecimal literals
