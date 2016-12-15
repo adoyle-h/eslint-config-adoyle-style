@@ -1,6 +1,12 @@
 // These are rules designed to prevent you from making mistakes. They either prescribe a better way of doing something or help you avoid footguns.
 module.exports = {
     'rules': {
+        // disallow async functions which have no await expression
+        'require-await': 2,
+        // disallow redundant return statements
+        'no-useless-return': 0,
+        // disallow unnecessary return await
+        'no-return-await': 0,
         // Enforces getter/setter pairs in objects
         'accessor-pairs': 0,
         // Enforces return statements in callbacks of array's methods
@@ -57,7 +63,7 @@ module.exports = {
         // disallow the use of leading or trailing decimal points in numeric literals
         'no-floating-decimal': 2,
         // Disallow assignment to native objects or read-only global variables
-        'no-global-assign': [2, {'exceptions': []}],
+        'no-global-assign': 2,
         // disallow the type conversions with shorter notations
         'no-implicit-coercion': 1,
         // disallow `var` and named functions in global scope

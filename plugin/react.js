@@ -219,7 +219,8 @@ module.exports = {
 
         // Prevent missing parentheses around multilines JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
-        'react/jsx-wrap-multilines': [2, {
+        // @Attention it is opposite to no-extra-parens
+        'react/jsx-wrap-multilines': [0, {
             declaration: true,
             assignment: true,
             return: true,
@@ -264,7 +265,8 @@ module.exports = {
 
         // warn against using findDOMNode()
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
-        'react/no-find-dom-node': 'error',
+        // @Maybe To be error. But how to get the offsetLeft of a dom?
+        'react/no-find-dom-node': 'off',
 
         // Forbid certain props on Components
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md

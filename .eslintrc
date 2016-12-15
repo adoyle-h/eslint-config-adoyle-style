@@ -1,3 +1,6 @@
 {
-    "extends": "adoyle-style"
+    "extends": [
+        "adoyle-style/node",
+        "adoyle-style/node/es6"
+    ],
 }

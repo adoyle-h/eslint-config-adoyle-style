@@ -9,5 +9,8 @@ module.exports = {
     },
     parserOptions: {
         ecmaVersion: 6,
+        ecmaFeatures: {
+            impliedStrict: true,
+        }
     },
 };

@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-adoyle-style",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.",
   "main": "node/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/adoyle-h/eslint-config-adoyle-style#readme",
   "engines": {
-    "node": ">=4.5.0"
+    "node": ">=6.9.1"
   },
   "dependencies": {},
   "devDependencies": {
@@ -38,7 +38,7 @@
     "run-sequence": "^1.1.5"
   },
   "peerDependencies": {
-    "eslint": "~3.5.0"
+    "eslint": "~3.12.2"
   },
   "optionalDependencies": {
     "eslint-plugin-import": "~1.15.0",
