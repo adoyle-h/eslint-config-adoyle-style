@@ -1,6 +1,8 @@
 // The following rules point out areas where you might have made mistakes.
 module.exports = {
     'rules': {
+        // disallow await inside of loops
+        'no-await-in-loop': 2,
         // disallow assignment in conditional expressions (recommended)
         'no-cond-assign': [2, 'always'],
         // disallow use of console in the node environment (recommended)
@@ -62,7 +64,17 @@ module.exports = {
         // disallow comparisons with the value NaN (recommended)
         'use-isnan': 2,
         // Ensure JSDoc comments are valid
-        'valid-jsdoc': 0,
+        'valid-jsdoc': [2, {
+            requireReturnType: true,
+            requireParamDescription: false,
+            requireReturnDescription: false,
+            preferType: {
+                'boolean': 'Boolean',
+                'number': 'Number',
+                'object': 'Object',
+                'string': 'String',
+            },
+        }],
         // Ensure that the results of typeof are compared against a valid string (recommended)
         'valid-typeof': [2, {'requireStringLiterals': true}],
     },

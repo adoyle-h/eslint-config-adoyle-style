@@ -1,11 +1,15 @@
 // These rules are purely matters of style and are quite subjective.
 module.exports = {
     'rules': {
+        // enforce or disallow capitalization of the first letter of a comment
+        'capitalized-comments': 0,
+        // require function names to match the name of the variable or property to which they are assigned
+        'func-name-matching': 0,
         // enforce spacing inside array brackets (fixable)
         'array-bracket-spacing': [2, 'never', {
             'singleValue': false,
             'objectsInArrays': false,
-            'arraysInArrays': false
+            'arraysInArrays': false,
         }],
         // disallow or enforce spaces inside of single line blocks (fixable)
         // @Maybe ignore it
@@ -39,11 +43,18 @@ module.exports = {
         // require identifiers to match the provided regular expression
         'id-match': 0,
         // specify tab or space width for your code (fixable)
-        'indent': [2, 4, {'SwitchCase': 1, 'VariableDeclarator': { 'var': 1, 'let': 1, 'const': 1}}],
+        'indent': [2, 4, {
+            'SwitchCase': 1,
+            'VariableDeclarator': {'var': 1, 'let': 1, 'const': 1},
+        }],
         // specify whether double or single quotes should be used in JSX attributes (fixable)
         'jsx-quotes': [2, 'prefer-double'],
         // enforce spacing between keys and values in object literal properties
-        'key-spacing': [2, {'beforeColon': false, 'afterColon': true}],
+        'key-spacing': [2, {
+            'beforeColon': false,
+            'afterColon': true,
+            'mode': 'strict',
+        }],
         // enforce spacing before and after keywords (fixable)
         'keyword-spacing': [2, {'before': true, 'after': true, 'overrides': {
             'catch': {'after': false},
@@ -147,7 +158,10 @@ module.exports = {
             'numbers': false,
         }],
         // specify whether backticks, double or single quotes should be used (fixable)
-        'quotes': [2, 'single', {'avoidEscape': false, 'allowTemplateLiterals': true}],
+        'quotes': [2, 'single', {
+            'avoidEscape': false,
+            'allowTemplateLiterals': true,
+        }],
         // Require JSDoc comment
         'require-jsdoc': 0,
         // require or disallow use of semicolons instead of ASI (fixable)
