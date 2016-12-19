@@ -8,15 +8,15 @@ A set of eslint shareable configs for javascript code style, which follows ADoyl
 
 The configs for browser and server. It supports ES5, ES6, and React/JSX.
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC GFM -->
 
 - [Feature](#feature)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [For NodeJS](#for-nodejs)
-  - [For Browser](#for-browser)
-  - [Additional Plugins](#additional-plugins)
-  - [For Test](#for-test)
+    - [For NodeJS](#for-nodejs)
+    - [For Browser](#for-browser)
+    - [Additional Plugins](#additional-plugins)
+    - [For Test](#for-test)
 - [Versioning](#versioning)
 - [Copyright and License](#copyright-and-license)
 
@@ -34,10 +34,13 @@ The configs for browser and server. It supports ES5, ES6, and React/JSX.
 ## Installation
 
 ```bash
-npm install -D eslint-config-adoyle-style
+npm install -DE eslint-config-adoyle-style
+npm install -D eslint@^3.12.2
 ```
 
-It is just an eslint config. You should install `eslint` by yourself.
+**ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.
+
+It is just an eslint config. You should install `eslint` and other dependencies by yourself.
 
 <a name="usage"></a>
 ## Usage
