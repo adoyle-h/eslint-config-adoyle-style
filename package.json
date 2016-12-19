@@ -32,8 +32,8 @@
     "config-sp": "^0.1.1",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
-    "gulp-bump": "^1.0.0",
-    "gulp-conventional-changelog": "^0.7.0",
+    "gulp-bump": "^2.5.1",
+    "gulp-conventional-changelog": "^1.1.0",
     "gulp-filter": "^3.0.1",
     "run-sequence": "^1.1.5"
   },
