@@ -106,7 +106,7 @@ module.exports = {
         // disallow comments inline after code
         'no-inline-comments': 0,
         // disallow `if` as the only statement in an `else` block
-        'no-lonely-if': 1,
+        'no-lonely-if': 0,
         // disallow mixes of different operators
         'no-mixed-operators': 1,
         // disallow mixed spaces and tabs for indentation (recommended)
