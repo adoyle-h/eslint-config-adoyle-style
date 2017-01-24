@@ -28,15 +28,16 @@ module.exports = {
         // disallow declaration of variables that are not used in the code (recommended)
         'no-unused-vars': [2, {
             'vars': 'local',
+            'varsIgnorePattern': '_',
             'args': 'all',
             'argsIgnorePattern': '_',
             'caughtErrors': 'all',
-            'caughtErrorsIgnorePattern': '^ignore',
+            'caughtErrorsIgnorePattern': '^ignore|_',
         }],
         // disallow use of variables before they are defined
         'no-use-before-define': [2, {
             'functions': true,
-            'classes': true
+            'classes': true,
         }],
     },
 };
