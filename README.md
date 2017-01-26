@@ -150,7 +150,7 @@ For more information on SemVer, please visit http://semver.org/.
 <a name="copyright-and-license"></a>
 ## Copyright and License
 
-Copyright (c) 2016 ADoyle. The project is licensed under the **BSD 3-clause License**.
+Copyright (c) 2016-2017 ADoyle. The project is licensed under the **BSD 3-clause License**.
 
 See the [LICENSE][] file for the specific language governing permissions and limitations under the License.
 
