@@ -1,6 +1,7 @@
 // These rules are specific to JavaScript running on Node.js or using CommonJS in the browser.
 module.exports = {
-    'rules': {
+    rules: {
+        'no-buffer-constructor': 0,
         // enforce `return` after a callback
         'callback-return': [2, ['callback', 'cb', 'next', 'done']],
         // enforce `require()` on top-level module scope

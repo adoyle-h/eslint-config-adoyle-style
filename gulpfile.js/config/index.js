@@ -1,5 +1,7 @@
 'use strict';
 
-var load = require('config-sp').load;
-var config = load(__dirname, ['default.js', 'local.js']);
+const load = require('config-sp').load;
+const config = load(__dirname, ['default.js', 'local.js'], {
+    ignores: 'local.js',
+});
 module.exports = config;

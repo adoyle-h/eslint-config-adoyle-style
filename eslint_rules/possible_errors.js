@@ -1,6 +1,9 @@
 // The following rules point out areas where you might have made mistakes.
 module.exports = {
-    'rules': {
+    rules: {
+        'getter-return': 2,
+        'no-compare-neg-zero': 2,
+        'for-direction': 2,
         // disallow await inside of loops
         'no-await-in-loop': 2,
         // disallow assignment in conditional expressions (recommended)
