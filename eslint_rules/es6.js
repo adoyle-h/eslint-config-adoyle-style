@@ -1,16 +1,15 @@
 // These rules are only relevant to ES6 environments.
 module.exports = {
-    'env': {
-        'es6': true,
+    env: {
+        es6: true,
     },
-    'parserOptions': {
-        'ecmaVersion': 6,
-        'sourceType': 'module',
-        'ecmaFeatures': {
-            'experimentalObjectRestSpread': true,
+    parserOptions: {
+        ecmaFeatures: {
+            experimentalObjectRestSpread: true,
         },
     },
-    'rules': {
+    rules: {
+        'prefer-destructuring': [1, {AssignmentExpression: {"array": false, "object": false}}],
         // require braces around arrow function bodies
         'arrow-body-style': [0, 'as-needed'],
         // require parentheses around arrow function arguments (fixable)
@@ -57,7 +56,7 @@ module.exports = {
             'avoidQuotes': true,
         }],
         // require arrow functions as callbacks
-        'prefer-arrow-callback': [2, {
+        'prefer-arrow-callback': [1, {
             'allowNamedFunctions': true,
             'allowUnboundThis': true,
         }],
@@ -66,14 +65,12 @@ module.exports = {
             'destructuring': 'any',
             'ignoreReadBeforeAssign': true,
         }],
-        // require Reflect methods where applicable
-        'prefer-reflect': 0,
         // require rest parameters instead of arguments
         'prefer-rest-params': 1,
         // require spread operators instead of .apply()
         'prefer-spread': 0,
         // require template literals instead of string concatenation
-        'prefer-template': 2,
+        'prefer-template': 1,
         // require generator functions to contain `yield` (recommended)
         'require-yield': 1,
         // enforce spacing between rest and spread operators and their expressions (fixable)

@@ -1,8 +1,10 @@
 // These are rules designed to prevent you from making mistakes. They either prescribe a better way of doing something or help you avoid footguns.
 module.exports = {
-    'rules': {
+    rules: {
+        'max-classes-per-file': 0,
+        'prefer-promise-reject-errors': [1, {allowEmptyReject: true}],
         // disallow async functions which have no await expression
-        'require-await': 2,
+        'require-await': 1,
         // disallow redundant return statements
         'no-useless-return': 0,
         // disallow unnecessary return await

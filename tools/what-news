@@ -1,0 +1,83 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const util = require('lodash');
+const Path = require('path');
+const fg = require('fast-glob');
+
+const ruleBaseDir = Path.join(__dirname, '../node_modules/eslint/lib/rules/');
+
+const gatherRule = (rule, ctx) => {
+    const {categories} = ctx;
+    const {docs} = require(Path.join(ruleBaseDir, `${rule}.js`)).meta;
+    const {category} = docs;
+    if (!categories[category]) {
+        categories[category] = [];
+    }
+    categories[category].push({rule, docs});
+};
+
+const printAddRules = (rules, ruleNames, myRuleNames) => {
+    const ctx = {categories: {}};
+    rules.forEach((rule) => gatherRule(rule, ctx));
+
+    util.forOwn(ctx.categories, (rules, category) => {
+        console.log(`- ${category}`)
+        rules.forEach(({rule, docs}) => {
+            const {url, recommended, replacedBy} = docs;
+            let replacedByTag = '';
+            let skip = false;
+            if (replacedBy) {
+                if (replacedBy.length === 0) {
+                    if (myRuleNames.includes(rule)) {
+                        replacedByTag = `[deprecated] `;
+                    } else {
+                        skip = true;
+                    }
+                } else {
+                    if (util.intersection(myRuleNames, replacedBy).length !== replacedBy.length) {
+                        replacedByTag = `[replacedBy=${replacedBy.join(', ')}] `;
+                    } else {
+                        skip = true;
+                    }
+                }
+            }
+
+            if (skip) return;
+            console.log(`  - '${rule}': ${replacedByTag}${recommended} ${url}`);
+        });
+    });
+};
+
+async function run() {
+    const entries = await fg([Path.join(ruleBaseDir, '*.js')]);
+    const ruleNames = entries.map((x) => Path.basename(x, '.js'));
+
+    const myRules = await fg([Path.join(__dirname, '../eslint_rules/*.js')]);
+    const myRuleNames = [];
+    myRules.forEach((path) => {
+        const {rules} = require(path);
+        util.forOwn(rules, (_, rule) => {
+            myRuleNames.push(rule);
+        });
+    });
+
+    const difference = util.difference(ruleNames, myRuleNames);
+    const adds = util.intersection(ruleNames, difference);
+    const removes = util.intersection(myRuleNames, difference);
+
+    if (difference.length !== (adds.length + removes.length)) {
+        console.log(`[Difference ${difference.length} rules]`);
+        console.log(difference.join('\n'));
+    }
+    console.log(`\n[Adds rules]`);
+    printAddRules(adds, ruleNames, myRuleNames);
+    console.log(`\n[Removes ${removes.length} rules]`);
+    removes.forEach((rule) => console.log(`- ${rule}`));
+}
+
+run().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

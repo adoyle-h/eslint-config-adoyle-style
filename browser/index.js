@@ -7,7 +7,7 @@ module.exports = {
         'stylistic_issues',
         'variables',
     ].map(function(path) {
-        return require.resolve('../eslint/' + path);
+        return require.resolve(`../eslint_rules/${path}`);
     }),
     env: {
         browser: true,

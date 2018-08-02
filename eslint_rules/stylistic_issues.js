@@ -1,6 +1,28 @@
 // These rules are purely matters of style and are quite subjective.
 module.exports = {
-    'rules': {
+    rules: {
+        'nonblock-statement-body-position': 2,
+        'prefer-object-spread': 1,
+        'semi-style': 0,
+        'switch-colon-spacing': [2, {'after': true, 'before': false}],
+        'template-tag-spacing': [2, 'never'],
+        'array-bracket-newline': 0,
+        'array-element-newline': 0,
+        'function-paren-newline': 0,
+        'implicit-arrow-linebreak': 0,
+        'lines-between-class-members': 0,
+        'max-lines-per-function': [1, {
+            max: 500,
+            skipBlankLines: true,
+            skipComments: true,
+        }],
+        'multiline-comment-style': 0,
+        'no-multi-assign': 0,
+        // specify tab or space width for your code (fixable)
+        'indent': [2, 4, {
+            'SwitchCase': 1,
+            'VariableDeclarator': {'var': 1, 'let': 1, 'const': 1},
+        }],
         // enforce or disallow capitalization of the first letter of a comment
         'capitalized-comments': 0,
         // require function names to match the name of the variable or property to which they are assigned
@@ -42,11 +64,6 @@ module.exports = {
         'id-length': 0,
         // require identifiers to match the provided regular expression
         'id-match': 0,
-        // specify tab or space width for your code (fixable)
-        'indent': [2, 4, {
-            'SwitchCase': 1,
-            'VariableDeclarator': {'var': 1, 'let': 1, 'const': 1},
-        }],
         // specify whether double or single quotes should be used in JSX attributes (fixable)
         'jsx-quotes': [2, 'prefer-double'],
         // enforce spacing between keys and values in object literal properties
@@ -68,7 +85,8 @@ module.exports = {
         'max-depth': [2, 4],
         // specify the maximum length of a line in your program
         'max-len': [2, {
-            'code': 100, 'comments': 1024, 'tabWidth': 4,
+            'code': 100,
+            'comments': 1024,
             'ignoreUrls': true,
             'ignoreComments': true,
             'ignoreTrailingComments': true,
@@ -91,10 +109,7 @@ module.exports = {
         'new-cap': [2, {'newIsCap': true, 'capIsNew': true, 'properties': true}],
         // disallow the omission of parentheses when invoking a constructor with no arguments
         'new-parens': 2,
-        // require or disallow an empty newline after variable declarations
-        'newline-after-var': 0,
-        // require newline before return statement
-        'newline-before-return': 0,
+        'padding-line-between-statements': 0,
         // enforce newline after each call when chaining the calls
         'newline-per-chained-call': 0,
         // disallow use of the `Array` constructor
@@ -106,7 +121,7 @@ module.exports = {
         // disallow comments inline after code
         'no-inline-comments': 0,
         // disallow `if` as the only statement in an `else` block
-        'no-lonely-if': 1,
+        'no-lonely-if': 0,
         // disallow mixes of different operators
         'no-mixed-operators': 1,
         // disallow mixed spaces and tabs for indentation (recommended)
@@ -202,7 +217,6 @@ module.exports = {
         'wrap-regex': 0,
         // enforce position of line comments
         'line-comment-position': 0,
-        // require or disallow newlines around directives<Paste>
-        'lines-around-directive': 0,
+        'padding-line-between-statements': 0,
     },
 };

@@ -5,9 +5,9 @@ module.exports = {
         return require.resolve('../eslint/' + path);
     }),
     env: {
-        es6: true,
     },
     parserOptions: {
         ecmaVersion: 6,
+        sourceType: 'module',
     },
 };

@@ -4,9 +4,9 @@
 [![License][License Image]][License LINK]
 ![NodeJS Package Dependencies][NodeJS Package Dependencies Link]
 
-A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.
+A set of eslint shareable configurations for javascript code style, which follows ADoyle's code style.
 
-The configs for browser and server. It supports ES5, ES6, and React/JSX.
+The configurations for browser and server development. It supports ES6, and React/JSX.
 
 <!-- MarkdownTOC GFM -->
 
@@ -22,7 +22,6 @@ The configs for browser and server. It supports ES5, ES6, and React/JSX.
 
 <!-- /MarkdownTOC -->
 
-<a name="feature"></a>
 ## Feature
 
 - Code style with my best practice
@@ -30,32 +29,28 @@ The configs for browser and server. It supports ES5, ES6, and React/JSX.
 - Optional eslint-plugin configurations
 - Semver-checking with eslint-plugin configuration
 
-<a name="installation"></a>
 ## Installation
 
 ```bash
 npm install -DE eslint-config-adoyle-style
-npm install -D eslint@^3.12.2
+npm install -D eslint@5
 ```
 
 **ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.
 
-It is just an eslint config. You should install `eslint` and other dependencies by yourself.
+You should install `eslint` and other dependencies by yourself.
 
-<a name="usage"></a>
 ## Usage
 
 *Note: We omitted the `eslint-config-` prefix since it is automatically assumed by ESLint.*
 
-You can override settings from the shareable config by adding them directly into your
-`.eslintrc` file.
+You can override settings from the shareable config by adding them directly into your `.eslintrc` file.
 
 Edit your `.eslintrc` file. Apply different code styles as below:
 
-<a name="for-nodejs"></a>
 ### For NodeJS
 
-**It's default for ES5 syntax:**
+**It's default for ES6 syntax and ES6 global variables:**
 
 ```js
 {
@@ -63,18 +58,6 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 }
 ```
 
-additional ES6 syntax:
-
-```js
-{
-  "extends": [
-    "adoyle-style/node",
-    "adoyle-style/node/es6"
-  ],
-}
-```
-
-<a name="for-browser"></a>
 ### For Browser
 
 **It's default for ES5 syntax:**
@@ -96,7 +79,6 @@ additional ES6 syntax:
 }
 ```
 
-<a name="additional-plugins"></a>
 ### Additional Plugins
 
 additional React/JSX support:
@@ -119,7 +101,6 @@ additional import support:
 {
   "extends": [
     "adoyle-style/node",
-    "adoyle-style/node/es6",
     "adoyle-style/plugin/import",
   ],
 }
@@ -131,12 +112,10 @@ You should install each devDependency by yourself when using the `adoyle-style/p
 
 You should use `babel-eslint` instead of `eslint` as parser for ES6+ syntax.
 
-<a name="for-test"></a>
 ### For Test
 
 @TODO
 
-<a name="versioning"></a>
 ## Versioning
 
 The versioning follows the rules of SemVer 2.0.0.
@@ -147,10 +126,9 @@ When major version is zero, You should save it with prefix `~`.
 
 For more information on SemVer, please visit http://semver.org/.
 
-<a name="copyright-and-license"></a>
 ## Copyright and License
 
-Copyright (c) 2016 ADoyle. The project is licensed under the **BSD 3-clause License**.
+Copyright (c) 2016-2018 ADoyle. The project is licensed under the **BSD 3-clause License**.
 
 See the [LICENSE][] file for the specific language governing permissions and limitations under the License.
 

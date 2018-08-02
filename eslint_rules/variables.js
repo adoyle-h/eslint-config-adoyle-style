@@ -1,10 +1,8 @@
 // These rules have to do with variable declarations.
 module.exports = {
-    'rules': {
+    rules: {
         // enforce or disallow variable initializations at definition
         'init-declarations': 0,
-        // disallow the catch clause parameter name being the same as a variable in the outer scope
-        'no-catch-shadow': 0,
         // disallow deletion of variables (recommended)
         'no-delete-var': 2,
         // disallow labels that share a name with a variable
@@ -28,15 +26,16 @@ module.exports = {
         // disallow declaration of variables that are not used in the code (recommended)
         'no-unused-vars': [2, {
             'vars': 'local',
+            'varsIgnorePattern': '_',
             'args': 'all',
             'argsIgnorePattern': '_',
             'caughtErrors': 'all',
-            'caughtErrorsIgnorePattern': '^ignore',
+            'caughtErrorsIgnorePattern': '^ignore|_',
         }],
         // disallow use of variables before they are defined
         'no-use-before-define': [2, {
             'functions': true,
-            'classes': true
+            'classes': true,
         }],
     },
 };
