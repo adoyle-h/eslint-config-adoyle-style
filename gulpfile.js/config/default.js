@@ -20,7 +20,7 @@ var config = {
             },
             license: {
                 src: [
-                    'lib/**/*.js', 'node/**/*.js', 'browser/**/*.js', 'eslint/**/*.js', 'plugin/**/*.js',
+                    'lib/**/*.js', 'node/**/*.js', 'browser/**/*.js', 'eslint_rules/**/*.js', 'plugin/**/*.js',
                     'package.json', 'README.md',
                     'LICENSE', 'NOTICE',
                 ],
@@ -29,7 +29,7 @@ var config = {
                 },
                 dest: './release',
                 sinceYear: '2016',
-                author: 'ADoyle',  // default author for all files
+                author: 'ADoyle <adoyle.h@gmail.com>',  // default author for all files
                 license: 'BSD3',  // default license for all files
                 matches: [{  // it could be empty array if you do not need specify files with other license
                     glob: ['**/*.js'],
