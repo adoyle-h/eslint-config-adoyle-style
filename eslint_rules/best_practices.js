@@ -1,3 +1,5 @@
+'use strict';
+
 // These are rules designed to prevent you from making mistakes. They either prescribe a better way of doing something or help you avoid footguns.
 module.exports = {
     rules: {
@@ -126,8 +128,8 @@ module.exports = {
         'no-unmodified-loop-condition': 2,
         // disallow usage of expressions in statement position
         'no-unused-expressions': [2, {
-          'allowShortCircuit': false,
-          'allowTernary': false,
+            'allowShortCircuit': false,
+            'allowTernary': false,
         }],
         // disallow unused labels (recommended)
         'no-unused-labels': 2,

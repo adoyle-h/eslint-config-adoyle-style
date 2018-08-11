@@ -2,6 +2,8 @@
 
 'use strict';
 
+/* eslint-disable no-console */
+
 const util = require('lodash');
 const Path = require('path');
 const fg = require('fast-glob');
@@ -18,12 +20,12 @@ const gatherRule = (rule, ctx) => {
     categories[category].push({rule, docs});
 };
 
-const printAddRules = (rules, ruleNames, myRuleNames) => {
+const printAddRules = (rules, myRuleNames) => {
     const ctx = {categories: {}};
     rules.forEach((rule) => gatherRule(rule, ctx));
 
     util.forOwn(ctx.categories, (rules, category) => {
-        console.log(`- ${category}`)
+        console.log(`- ${category}`);
         rules.forEach(({rule, docs}) => {
             const {url, recommended, replacedBy} = docs;
             let replacedByTag = '';
@@ -50,7 +52,7 @@ const printAddRules = (rules, ruleNames, myRuleNames) => {
     });
 };
 
-async function run() {
+async function eslintRules() {
     const entries = await fg([Path.join(ruleBaseDir, '*.js')]);
     const ruleNames = entries.map((x) => Path.basename(x, '.js'));
 
@@ -63,7 +65,7 @@ async function run() {
         });
     });
 
-    const difference = util.difference(ruleNames, myRuleNames);
+    const difference = util.xor(ruleNames, myRuleNames);
     const adds = util.intersection(ruleNames, difference);
     const removes = util.intersection(myRuleNames, difference);
 
@@ -72,9 +74,36 @@ async function run() {
         console.log(difference.join('\n'));
     }
     console.log(`\n[Adds rules]`);
-    printAddRules(adds, ruleNames, myRuleNames);
+    printAddRules(adds, myRuleNames);
     console.log(`\n[Removes ${removes.length} rules]`);
-    removes.forEach((rule) => console.log(`- ${rule}`));
+    removes.forEach((rule) => console.log(`  - ${rule}`));
+}
+
+async function jsxA11y() {
+    const jsx = require(Path.join(__dirname, '../plugin/react-a11y.js'));
+    const myRuleNames = Object.keys(jsx.rules).map((rule) => rule.replace(/^jsx-a11y\//, ''));
+
+    const rules = await fg([Path.join(__dirname, '../node_modules/eslint-plugin-jsx-a11y/lib/rules/*.js')]);
+    const ruleNames = rules.map((path) => {
+        return Path.basename(path, '.js');
+    });
+
+    const difference = util.xor(ruleNames, myRuleNames);
+    const adds = util.intersection(ruleNames, difference);
+    const removes = util.intersection(myRuleNames, difference);
+
+    console.log(`\n[Adds ${adds.length} rules]`);
+    adds.forEach((rule) => console.log(`  - ${rule}`));
+    console.log(`\n[Removes ${removes.length} rules]`);
+    removes.forEach((rule) => console.log(`  - ${rule}`));
+}
+
+async function run() {
+    console.log('## eslint');
+    await eslintRules();
+
+    console.log('\n## eslint-plugin-jsx-a11y');
+    await jsxA11y();
 }
 
 run().catch((error) => {

@@ -1,3 +1,5 @@
+'use strict';
+
 // The following rules point out areas where you might have made mistakes.
 module.exports = {
     rules: {
