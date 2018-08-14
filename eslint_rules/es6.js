@@ -1,3 +1,5 @@
+'use strict';
+
 // These rules are only relevant to ES6 environments.
 module.exports = {
     env: {
@@ -9,7 +11,7 @@ module.exports = {
         },
     },
     rules: {
-        'prefer-destructuring': [1, {AssignmentExpression: {"array": false, "object": false}}],
+        'prefer-destructuring': [1, {AssignmentExpression: {'array': false, 'object': false}}],
         // require braces around arrow function bodies
         'arrow-body-style': [0, 'as-needed'],
         // require parentheses around arrow function arguments (fixable)

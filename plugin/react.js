@@ -245,7 +245,7 @@ module.exports = {
         // only .jsx files may have JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
         'react/jsx-filename-extension': ['error', {
-            extensions: ['.jsx']
+            extensions: ['.jsx'],
         }],
 
         // prevent accidental JS comments from being injected into JSX as text
@@ -260,7 +260,7 @@ module.exports = {
         // require a shouldComponentUpdate method, or PureRenderMixin
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-optimization.md
         'react/require-optimization': ['off', {
-            allowDecorators: []
+            allowDecorators: [],
         }],
 
         // warn against using findDOMNode()
@@ -271,19 +271,12 @@ module.exports = {
         // Forbid certain props on Components
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
         'react/forbid-component-props': ['off', {
-            forbid: []
+            forbid: [],
         }],
 
         // Prevent problem with children and props.dangerouslySetInnerHTML
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
         // TODO: enable, semver-major
         'react/no-danger-with-children': 'off',
-    },
-
-    settings: {
-        react: {
-            pragma: 'React',
-            version: '0.14',
-        },
     },
 };

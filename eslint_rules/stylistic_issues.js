@@ -1,3 +1,5 @@
+'use strict';
+
 // These rules are purely matters of style and are quite subjective.
 module.exports = {
     rules: {
@@ -217,6 +219,5 @@ module.exports = {
         'wrap-regex': 0,
         // enforce position of line comments
         'line-comment-position': 0,
-        'padding-line-between-statements': 0,
     },
 };

@@ -31,9 +31,12 @@ The configurations for browser and server development. It supports ES6, and Reac
 
 ## Installation
 
-```bash
+```sh
 npm install -DE eslint-config-adoyle-style
 npm install -D eslint@5
+
+# for browser
+npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
 ```
 
 **ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.

@@ -2,7 +2,6 @@
 
 'use strict';
 
-const util = require('lodash');
 const Path = require('path');
 
 const ruleBaseDir = Path.join(__dirname, '../node_modules/eslint/lib/rules/');
@@ -10,4 +9,5 @@ const ruleBaseDir = Path.join(__dirname, '../node_modules/eslint/lib/rules/');
 const rule = process.argv[2];
 const {docs} = require(Path.join(ruleBaseDir, `${rule}.js`)).meta;
 
+// eslint-disable-next-line no-console
 console.log(JSON.stringify(docs, null, 4));
