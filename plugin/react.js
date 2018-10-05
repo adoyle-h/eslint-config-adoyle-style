@@ -20,6 +20,9 @@ module.exports = {
         // http://eslint.org/docs/rules/jsx-quotes
         'jsx-quotes': [2, 'prefer-double'],
 
+        'react/no-unused-prop-types': 1,
+        'react/no-array-index-key': 2,
+
         // Prevent missing displayName in a React component definition
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
         'react/display-name': [0, {

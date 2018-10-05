@@ -49,7 +49,7 @@ module.exports = {
             'newlines-between': 'never',
         }],
         'import/newline-after-import': 2,
-        'import/prefer-default-export': 2,
+        'import/prefer-default-export': 0,
         'import/no-restricted-paths': 0,
         'import/no-absolute-path': 2,
     },

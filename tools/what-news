@@ -98,12 +98,34 @@ async function jsxA11y() {
     removes.forEach((rule) => console.log(`  - ${rule}`));
 }
 
+async function react() {
+    const set = require(Path.join(__dirname, '../plugin/react.js'));
+    const myRuleNames = Object.keys(set.rules).map((rule) => rule.replace(/^jsx-a11y\//, ''));
+
+    const rules = await fg([Path.join(__dirname, '../node_modules/eslint-plugin-jsx-a11y/lib/rules/*.js')]);
+    const ruleNames = rules.map((path) => {
+        return Path.basename(path, '.js');
+    });
+
+    const difference = util.xor(ruleNames, myRuleNames);
+    const adds = util.intersection(ruleNames, difference);
+    const removes = util.intersection(myRuleNames, difference);
+
+    console.log(`\n[Adds ${adds.length} rules]`);
+    adds.forEach((rule) => console.log(`  - ${rule}`));
+    console.log(`\n[Removes ${removes.length} rules]`);
+    removes.forEach((rule) => console.log(`  - ${rule}`));
+}
+
 async function run() {
     console.log('## eslint');
     await eslintRules();
 
     console.log('\n## eslint-plugin-jsx-a11y');
     await jsxA11y();
+
+    console.log('\n## eslint-plugin-react');
+    await react();
 }
 
 run().catch((error) => {
