@@ -8,7 +8,7 @@ module.exports = {
         'strict',
         'stylistic_issues',
         'variables',
-    ].map(function(path) {
+    ].map((path) => {
         return require.resolve(`../eslint_rules/${path}`);
     }),
     env: {
@@ -16,7 +16,8 @@ module.exports = {
         node: false,
     },
     parserOptions: {
-        ecmaVersion: 5,
+        ecmaVersion: '2018',
+        sourceType: 'module',
     },
     globals: {},
     rules: {

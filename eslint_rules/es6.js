@@ -5,11 +5,6 @@ module.exports = {
     env: {
         es6: true,
     },
-    parserOptions: {
-        ecmaFeatures: {
-            experimentalObjectRestSpread: true,
-        },
-    },
     rules: {
         'prefer-destructuring': [1, {AssignmentExpression: {'array': false, 'object': false}}],
         // require braces around arrow function bodies

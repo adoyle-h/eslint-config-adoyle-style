@@ -27,10 +27,10 @@ module.exports = {
         'no-undefined': 0,
         // disallow declaration of variables that are not used in the code (recommended)
         'no-unused-vars': [2, {
-            'vars': 'local',
-            'varsIgnorePattern': '_',
+            'vars': 'all',
+            'varsIgnorePattern': '^_',
             'args': 'all',
-            'argsIgnorePattern': '_',
+            'argsIgnorePattern': '^_',
             'caughtErrors': 'all',
             'caughtErrorsIgnorePattern': '^ignore|_',
         }],

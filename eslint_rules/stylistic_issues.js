@@ -12,7 +12,7 @@ module.exports = {
         'array-element-newline': 0,
         'function-paren-newline': 0,
         'implicit-arrow-linebreak': 0,
-        'lines-between-class-members': 0,
+        'lines-between-class-members': [2, 'always', {'exceptAfterSingleLine': true}],
         'max-lines-per-function': [1, {
             max: 500,
             skipBlankLines: true,
