@@ -41,7 +41,7 @@ module.exports = {
 
         // Validate closing bracket location in JSX
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
-        'react/jsx-closing-bracket-location': [2, 'line-aligned'],
+        'react/jsx-closing-bracket-location': [0],
 
         // Enforce or disallow spaces inside of curly braces in JSX attributes
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
@@ -137,7 +137,7 @@ module.exports = {
 
         // Prevent usage of setState in componentDidMount
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-        'react/no-did-mount-set-state': 2,
+        'react/no-did-mount-set-state': 1,
 
         // Prevent usage of setState in componentDidUpdate
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
@@ -231,7 +231,7 @@ module.exports = {
 
         // Require that the first prop in a JSX element be on a new line when the element is multiline
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
-        'react/jsx-first-prop-new-line': [2, 'multiline'],
+        'react/jsx-first-prop-new-line': [1, 'multiline'],
 
         // Enforce spacing around jsx equals signs
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
