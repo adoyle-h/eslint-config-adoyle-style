@@ -36,7 +36,9 @@ npm install -DE eslint-config-adoyle-style
 npm install -D eslint@5
 
 # for browser
-npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-babel
+npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
+## if use some advanced syntax via babel
+npm install -D eslint-plugin-babel babel-eslint
 ```
 
 **ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.
@@ -84,7 +86,7 @@ additional ES6 syntax:
 
 ### Additional Plugins
 
-additional React/JSX support:
+Additional React/JSX support:
 
 ```js
 {
@@ -94,12 +96,21 @@ additional React/JSX support:
     "adoyle-style/plugin/import",
     "adoyle-style/plugin/react-a11y",
     "adoyle-style/plugin/react",
+  ],
+}
+```
+
+Additional Babel support:
+
+```js
+{
+  "extends": [
     "adoyle-style/plugin/babel",
   ],
 }
 ```
 
-additional import support:
+Additional import support:
 
 ```js
 {
