@@ -94,7 +94,7 @@ Additional React/JSX support:
     "adoyle-style/browser",
     "adoyle-style/browser/es6",
     "adoyle-style/plugin/import",
-    "adoyle-style/plugin/react-a11y",
+    "adoyle-style/plugin/jsx-a11y",
     "adoyle-style/plugin/react",
   ],
 }
