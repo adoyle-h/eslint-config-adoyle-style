@@ -1,7 +1,7 @@
 'use strict';
 
 const util = require('../lib/util');
-util.checkPlugin('eslint-plugin-jsx-a11y');
+util.checkPlugin('eslint-plugin-jsx-a11y', '^6.2.1');
 
 module.exports = {
     plugins: [
