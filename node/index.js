@@ -20,5 +20,11 @@ module.exports = {
         sourceType: 'script',
     },
     globals: {},
-    rules: {},
+    rules: {
+        'no-shadow': [1, {
+            'builtinGlobals': true,
+            'hoist': 'all',
+            'allow': ['Promise', 'callback', '_'],
+        }],
+    },
 };

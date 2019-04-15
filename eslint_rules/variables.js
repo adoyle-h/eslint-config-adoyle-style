@@ -13,7 +13,7 @@ module.exports = {
         'no-restricted-globals': 0,
         // disallow declaration of variables already declared in the outer scope
         'no-shadow': [1, {
-            'builtinGlobals': true,
+            'builtinGlobals': false,
             'hoist': 'all',
             'allow': ['Promise', 'callback', '_'],
         }],
