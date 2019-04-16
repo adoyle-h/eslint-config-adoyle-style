@@ -155,5 +155,8 @@ module.exports = {
         'yoda': [2, 'never', {'exceptRange': true, 'onlyEquality': false}],
         // Enforce that class methods utilize this
         'class-methods-use-this': 0,
+        'no-useless-catch': 2,
+        'prefer-named-capture-group': 0,
+        'require-unicode-regexp': 0,
     },
 };

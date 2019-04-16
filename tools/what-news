@@ -7,52 +7,64 @@
 const util = require('lodash');
 const Path = require('path');
 const fg = require('fast-glob');
+const chalk = require('chalk');
 
-const ruleBaseDir = Path.join(__dirname, '../node_modules/eslint/lib/rules/');
 
-const gatherRule = (rule, ctx) => {
+const genGatherRule = (pkgName) => (rule, ctx) => {
     const {categories} = ctx;
-    const {docs} = require(Path.join(ruleBaseDir, `${rule}.js`)).meta;
-    const {category} = docs;
+    const ruleBaseDir = Path.join(__dirname, `../node_modules/${pkgName}/lib/rules/`);
+    const {meta} = require(Path.join(ruleBaseDir, `${rule}.js`));
+
+    const {category = '[category undefined]'} = meta.docs;
     if (!categories[category]) {
         categories[category] = [];
     }
-    categories[category].push({rule, docs});
+    categories[category].push({rule, meta});
 };
 
-const printAddRules = (rules, myRuleNames) => {
+const printAddRules = (gatherRules, rules, myRuleNames) => {
     const ctx = {categories: {}};
-    rules.forEach((rule) => gatherRule(rule, ctx));
+    rules.forEach((rule) => gatherRules(rule, ctx));
 
+    const adds = [];
     util.forOwn(ctx.categories, (rules, category) => {
-        console.log(`- ${category}`);
-        rules.forEach(({rule, docs}) => {
-            const {url, recommended, replacedBy} = docs;
-            let replacedByTag = '';
-            let skip = false;
-            if (replacedBy) {
-                if (replacedBy.length === 0) {
-                    if (myRuleNames.includes(rule)) {
-                        replacedByTag = `[deprecated] `;
-                    } else {
-                        skip = true;
-                    }
+        const addRules = [];
+        rules.forEach(({rule, meta}) => {
+            const {docs, deprecated, replacedBy} = meta;
+            const {url = '[url undefined]', recommended = '[recommended undefined]'} = docs;
+
+            let deprecatedTag = '';
+            if (deprecated) {
+                if (myRuleNames.includes(rule)) {
+                    deprecatedTag = `[Deprecated][ReplacedBy ${replacedBy}]`;
                 } else {
-                    if (util.intersection(myRuleNames, replacedBy).length !== replacedBy.length) {
-                        replacedByTag = `[replacedBy=${replacedBy.join(', ')}] `;
-                    } else {
-                        skip = true;
-                    }
+                    return;
                 }
             }
 
-            if (skip) return;
-            console.log(`  - '${rule}': ${replacedByTag}${recommended} ${url}`);
+            addRules.push(`  - '${rule}': ${deprecatedTag}${recommended} ${url}`);
         });
+
+        adds.push([category, addRules]);
+    });
+
+    adds.forEach(([category, addRules]) => {
+        const {length} = addRules;
+        if (length > 0) {
+            console.log(chalk.blue(`- ${category}`), chalk.green(`(${length})`));
+            addRules.forEach((msg) => console.log(msg));
+        }
     });
 };
 
+const pAdds = () => console.log(chalk.green(`\n[Added rules]`));
+const pRemoves = (removes) => console.log(chalk.red(`\n[Removed rules] (${removes.length})`));
+const p = (title) => console.log(chalk.bgWhite.black(`\n   ${title}   `));
+
 async function eslintRules() {
+    p('eslint');
+    const name = 'eslint';
+    const ruleBaseDir = Path.join(__dirname, `../node_modules/${name}/lib/rules/`);
     const entries = await fg([Path.join(ruleBaseDir, '*.js')]);
     const ruleNames = entries.map((x) => Path.basename(x, '.js'));
 
@@ -73,17 +85,23 @@ async function eslintRules() {
         console.log(`[Difference ${difference.length} rules]`);
         console.log(difference.join('\n'));
     }
-    console.log(`\n[Adds rules]`);
-    printAddRules(adds, myRuleNames);
-    console.log(`\n[Removes ${removes.length} rules]`);
+
+    pAdds();
+    printAddRules(genGatherRule(name), adds, myRuleNames);
+    pRemoves(removes);
     removes.forEach((rule) => console.log(`  - ${rule}`));
 }
 
-async function jsxA11y() {
-    const jsx = require(Path.join(__dirname, '../plugin/react-a11y.js'));
-    const myRuleNames = Object.keys(jsx.rules).map((rule) => rule.replace(/^jsx-a11y\//, ''));
+const getDifference = (name) => async () => {
+    p(`eslint-plugin-${name}`);
+    const myPlugin = require(Path.join(__dirname, `../plugin/${name}.js`));
+    if (!myPlugin.rules) {
+        console.log(chalk.gray('No rules'));
+        return;
+    }
+    const myRuleNames = Object.keys(myPlugin.rules).map((rule) => rule.replace(new RegExp(`^${name}\/`), ''));
 
-    const rules = await fg([Path.join(__dirname, '../node_modules/eslint-plugin-jsx-a11y/lib/rules/*.js')]);
+    const rules = await fg([Path.join(__dirname, `../node_modules/eslint-plugin-${name}/lib/rules/*.js`)]);
     const ruleNames = rules.map((path) => {
         return Path.basename(path, '.js');
     });
@@ -92,40 +110,18 @@ async function jsxA11y() {
     const adds = util.intersection(ruleNames, difference);
     const removes = util.intersection(myRuleNames, difference);
 
-    console.log(`\n[Adds ${adds.length} rules]`);
-    adds.forEach((rule) => console.log(`  - ${rule}`));
-    console.log(`\n[Removes ${removes.length} rules]`);
-    removes.forEach((rule) => console.log(`  - ${rule}`));
-}
-
-async function react() {
-    const set = require(Path.join(__dirname, '../plugin/react.js'));
-    const myRuleNames = Object.keys(set.rules).map((rule) => rule.replace(/^jsx-a11y\//, ''));
-
-    const rules = await fg([Path.join(__dirname, '../node_modules/eslint-plugin-jsx-a11y/lib/rules/*.js')]);
-    const ruleNames = rules.map((path) => {
-        return Path.basename(path, '.js');
-    });
-
-    const difference = util.xor(ruleNames, myRuleNames);
-    const adds = util.intersection(ruleNames, difference);
-    const removes = util.intersection(myRuleNames, difference);
-
-    console.log(`\n[Adds ${adds.length} rules]`);
-    adds.forEach((rule) => console.log(`  - ${rule}`));
-    console.log(`\n[Removes ${removes.length} rules]`);
+    pAdds();
+    printAddRules(genGatherRule(`eslint-plugin-${name}`), adds, myRuleNames);
+    pRemoves(removes);
     removes.forEach((rule) => console.log(`  - ${rule}`));
 }
 
 async function run() {
-    console.log('## eslint');
     await eslintRules();
-
-    console.log('\n## eslint-plugin-jsx-a11y');
-    await jsxA11y();
-
-    console.log('\n## eslint-plugin-react');
-    await react();
+    await getDifference('jsx-a11y')();
+    await getDifference('react')();
+    await getDifference('import')();
+    await getDifference('babel')();
 }
 
 run().catch((error) => {
