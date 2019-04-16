@@ -16,7 +16,7 @@ module.exports = {
     // View link below for react rules documentation
     // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
     rules: {
-        'react/no-unused-prop-types': 'warning',
+        'react/no-unused-prop-types': 'warn',
         'react/no-array-index-key': 'error',
 
         // Prevent missing displayName in a React component definition
@@ -272,7 +272,7 @@ module.exports = {
         'react/no-access-state-in-setstate': 'error',
         'react/no-redundant-should-component-update': 'error',
         'react/style-prop-object': 'error',
-        'react/no-unescaped-entities': 'warning',
+        'react/no-unescaped-entities': 'warn',
         'react/no-this-in-sfc': 'error',
         'react/boolean-prop-naming': 'off',
         'react/destructuring-assignment': 'off',
