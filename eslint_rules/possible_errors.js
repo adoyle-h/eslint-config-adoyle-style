@@ -82,5 +82,8 @@ module.exports = {
         }],
         // Ensure that the results of typeof are compared against a valid string (recommended)
         'valid-typeof': [2, {'requireStringLiterals': true}],
+        'no-async-promise-executor': 2,
+        'no-misleading-character-class': 2,
+        'require-atomic-updates': 2,
     },
 };

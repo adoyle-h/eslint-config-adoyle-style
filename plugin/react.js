@@ -16,12 +16,8 @@ module.exports = {
     // View link below for react rules documentation
     // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
     rules: {
-        // Specify whether double or single quotes should be used in JSX attributes
-        // http://eslint.org/docs/rules/jsx-quotes
-        'jsx-quotes': [2, 'prefer-double'],
-
-        'react/no-unused-prop-types': 1,
-        'react/no-array-index-key': 2,
+        'react/no-unused-prop-types': 'warning',
+        'react/no-array-index-key': 'error',
 
         // Prevent missing displayName in a React component definition
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
@@ -107,9 +103,6 @@ module.exports = {
             requiredFirst: true,
         }],
 
-        // Deprecated in favor of react/jsx-sort-props
-        'react/jsx-sort-prop-types': 0,
-
         // Enforce props alphabetical sorting
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
         'react/jsx-sort-props': [0, {
@@ -188,12 +181,6 @@ module.exports = {
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
         'react/react-in-jsx-scope': 2,
 
-        // Restrict file extensions that may be required
-        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-        'react/require-extension': [0, {
-            extensions: ['.jsx', '.js'],
-        }],
-
         // Require render() methods to return something
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
         'react/require-render-return': 2,
@@ -254,7 +241,6 @@ module.exports = {
         // prevent accidental JS comments from being injected into JSX as text
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
         'react/jsx-no-comment-textnodes': 'error',
-        'react/no-comment-textnodes': 'off', // deprecated version
 
         // disallow using React.render/ReactDOM.render's return value
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
@@ -281,5 +267,14 @@ module.exports = {
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
         // TODO: enable, semver-major
         'react/no-danger-with-children': 'off',
+
+        'react/button-has-type': 'error',
+        'react/no-access-state-in-setstate': 'error',
+        'react/no-redundant-should-component-update': 'error',
+        'react/style-prop-object': 'error',
+        'react/no-unescaped-entities': 'warning',
+        'react/no-this-in-sfc': 'error',
+        'react/boolean-prop-naming': 'off',
+        'react/destructuring-assignment': 'off',
     },
 };

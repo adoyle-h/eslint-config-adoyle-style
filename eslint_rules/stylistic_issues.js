@@ -23,7 +23,14 @@ module.exports = {
         // specify tab or space width for your code (fixable)
         'indent': [2, 4, {
             'SwitchCase': 1,
-            'VariableDeclarator': {'var': 1, 'let': 1, 'const': 1},
+            'MemberExpression': 1,
+            'FunctionExpression': {'parameters': 'first'},
+            'CallExpression': {'arguments': 'first'},
+            'VariableDeclarator': 'first',
+            'ArrayExpression': 1,
+            'ObjectExpression': 1,
+            'ImportDeclaration': 1,
+            'flatTernaryExpressions': false,
         }],
         // enforce or disallow capitalization of the first letter of a comment
         'capitalized-comments': 0,
