@@ -166,7 +166,7 @@ module.exports = {
         // enforce placing object properties on separate lines
         'object-property-newline': 0,
         // require or disallow one variable declaration per function
-        'one-var': [2, {'uninitialized': 'always', 'initialized': 'never'}],
+        'one-var': [2, {const: 'never', separateRequires: true}],
         // require or disallow an newline around variable declarations
         'one-var-declaration-per-line': [2, 'initializations'],
         // require assignment operator shorthand where possible or prohibit it entirely
