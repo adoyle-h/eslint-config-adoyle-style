@@ -22,7 +22,7 @@ const genGatherRule = (pkgName) => (rule, ctx) => {
     categories[category].push({rule, meta});
 };
 
-const printAddRules = (gatherRules, rules, myRuleNames) => {
+const printAddRules = (gatherRules, rules, myRuleNames, name) => {
     const ctx = {categories: {}};
     rules.forEach((rule) => gatherRules(rule, ctx));
 
@@ -42,7 +42,13 @@ const printAddRules = (gatherRules, rules, myRuleNames) => {
                 }
             }
 
-            addRules.push(`  - '${rule}': ${deprecatedTag}${recommended} ${url}`);
+            let ruleStr;
+            if (name) {
+                ruleStr = `${name}/${rule}`;
+            } else {
+                ruleStr = rule;
+            }
+            addRules.push(`  - '${ruleStr}': ${deprecatedTag}${recommended} ${url}`);
         });
 
         adds.push([category, addRules]);
@@ -99,7 +105,7 @@ const getDifference = (name) => async () => {
         console.log(chalk.gray('No rules'));
         return;
     }
-    const myRuleNames = Object.keys(myPlugin.rules).map((rule) => rule.replace(new RegExp(`^${name}\/`), ''));
+    const myRuleNames = Object.keys(myPlugin.rules).map((rule) => rule.replace(new RegExp(`^${name}/`), ''));
 
     const rules = await fg([Path.join(__dirname, `../node_modules/eslint-plugin-${name}/lib/rules/*.js`)]);
     const ruleNames = rules.map((path) => {
@@ -111,10 +117,10 @@ const getDifference = (name) => async () => {
     const removes = util.intersection(myRuleNames, difference);
 
     pAdds();
-    printAddRules(genGatherRule(`eslint-plugin-${name}`), adds, myRuleNames);
+    printAddRules(genGatherRule(`eslint-plugin-${name}`), adds, myRuleNames, name);
     pRemoves(removes);
-    removes.forEach((rule) => console.log(`  - ${rule}`));
-}
+    removes.forEach((rule) => console.log(`  - ${name}/${rule}`));
+};
 
 async function run() {
     await eslintRules();

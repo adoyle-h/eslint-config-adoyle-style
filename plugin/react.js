@@ -189,10 +189,6 @@ module.exports = {
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
         'react/self-closing-comp': 2,
 
-        // Enforce spaces before the closing bracket of self-closing JSX elements
-        // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
-        'react/jsx-space-before-closing': [2, 'always'],
-
         // Enforce component methods order
         // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
         'react/sort-comp': [2, {
@@ -276,5 +272,30 @@ module.exports = {
         'react/no-this-in-sfc': 'error',
         'react/boolean-prop-naming': 'off',
         'react/destructuring-assignment': 'off',
+        'react/default-props-match-prop-types': 'error',
+        'react/forbid-dom-props': 'off',
+        'react/forbid-elements': 'off',
+        'react/no-children-prop': 'error',
+        'react/forbid-foreign-prop-types': 'off',
+        'react/no-unsafe': ['error', {checkAliases: true}],
+        'react/no-unused-state': 'off',
+        'react/no-will-update-set-state': ['error', 'disallow-in-func'],
+        'react/require-default-props': 'error',
+        'react/void-dom-elements-no-children': 'error',
+        'react/no-typos': 'error',
+        'react/jsx-tag-spacing': ['error', {
+            'closingSlash': 'never',
+            'beforeSelfClosing': 'always',
+            'afterOpening': 'never',
+            'beforeClosing': 'never',
+        }],
+        'react/jsx-fragments': ['error', 'syntax'],
+        'react/jsx-sort-default-props': 'off',
+        'react/jsx-props-no-multi-spaces': 'error',
+        'react/jsx-curly-brace-presence': 'off',
+        'react/jsx-child-element-spacing': 'off',
+        'react/jsx-closing-tag-location': 'off',
+        'react/jsx-max-depth': 'off',
+        'react/jsx-one-expression-per-line': 'off',
     },
 };
