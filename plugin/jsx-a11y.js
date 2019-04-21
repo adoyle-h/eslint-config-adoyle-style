@@ -68,5 +68,6 @@ module.exports = {
         'jsx-a11y/no-noninteractive-element-to-interactive-role': 2,
         'jsx-a11y/no-noninteractive-tabindex': 2,
         'jsx-a11y/no-redundant-roles': 2,
+        'jsx-a11y/control-has-associated-label': 1,
     },
 };
