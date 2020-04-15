@@ -1,4 +1,13 @@
-<a name="4.1.0"></a>
+# 6.8.0 (2020-04-15)
+
+### Features
+
+* update eslint to v6.8.0 ([d32e169](https://github.com/adoyle-h/eslint-config-adoyle-style/commit/d32e169fcd95765fe5c5aca9d2ecf287753bf567))
+* update eslint-plugin-import to v2.20.2 ([195d459](https://github.com/adoyle-h/eslint-config-adoyle-style/commit/195d459a531868177d86e0e17775d301c6a0e058))
+* update eslint-plugin-jsx-a11y to v6.2.3 ([3937123](https://github.com/adoyle-h/eslint-config-adoyle-style/commit/39371234002b9d91dd945eb9d5a50866f5caca83))
+* update eslint-plugin-react to v7.19.0 ([ad0abff](https://github.com/adoyle-h/eslint-config-adoyle-style/commit/ad0abfff3c4cc33c78eef336002f3cfa83d10154))
+
+
 # 4.1.0 (2019-04-21)
 
 
