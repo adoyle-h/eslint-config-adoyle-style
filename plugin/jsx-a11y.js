@@ -31,8 +31,6 @@ module.exports = {
 
         'jsx-a11y/img-redundant-alt': 0,
 
-        'jsx-a11y/label-has-for': 0,
-
         'jsx-a11y/lang': 2,
 
         'jsx-a11y/mouse-events-have-key-events': 0,
