@@ -186,8 +186,6 @@ module.exports = {
             'avoidEscape': false,
             'allowTemplateLiterals': true,
         }],
-        // Require JSDoc comment
-        'require-jsdoc': 0,
         // require or disallow use of semicolons instead of ASI (fixable)
         'semi': [2, 'always'],
         // enforce spacing before and after semicolons (fixable)
@@ -226,5 +224,7 @@ module.exports = {
         'wrap-regex': 0,
         // enforce position of line comments
         'line-comment-position': 0,
+        'function-call-argument-newline': 0,
+        'prefer-exponentiation-operator': 0,
     },
 };

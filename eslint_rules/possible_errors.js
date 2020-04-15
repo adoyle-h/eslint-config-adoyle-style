@@ -68,22 +68,13 @@ module.exports = {
         'no-unsafe-negation': 2,
         // disallow comparisons with the value NaN (recommended)
         'use-isnan': 2,
-        // Ensure JSDoc comments are valid
-        'valid-jsdoc': [2, {
-            requireReturnType: true,
-            requireParamDescription: false,
-            requireReturnDescription: false,
-            preferType: {
-                'boolean': 'Boolean',
-                'number': 'Number',
-                'object': 'Object',
-                'string': 'String',
-            },
-        }],
         // Ensure that the results of typeof are compared against a valid string (recommended)
         'valid-typeof': [2, {'requireStringLiterals': true}],
         'no-async-promise-executor': 2,
         'no-misleading-character-class': 2,
         'require-atomic-updates': 2,
+        'no-import-assign': 2,
+        'no-dupe-else-if': 2,
+        'no-setter-return': 2,
     },
 };

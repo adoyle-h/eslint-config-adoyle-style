@@ -158,5 +158,9 @@ module.exports = {
         'no-useless-catch': 2,
         'prefer-named-capture-group': 0,
         'require-unicode-regexp': 0,
+        'default-param-last': 2,
+        'grouped-accessor-pairs': 0,
+        'no-constructor-return': 2,
+        'prefer-regex-literals': 0,
     },
 };

@@ -17,6 +17,9 @@ The configurations for browser and server development. It supports ES6, and Reac
     - [For Browser](#for-browser)
     - [Additional Plugins](#additional-plugins)
     - [For Test](#for-test)
+- [Develop](#develop)
+    - [Show differences](#show-differences)
+    - [Query Rule](#query-rule)
 - [Versioning](#versioning)
 - [Copyright and License](#copyright-and-license)
 
@@ -33,23 +36,18 @@ The configurations for browser and server development. It supports ES6, and Reac
 
 ```sh
 npm install -DE eslint-config-adoyle-style
-npm install -D eslint@5
+npm install -D eslint@6
 
-# for browser
+# Only for browser
 npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
-## if use some advanced syntax via babel
+
+# If your project use babel
 npm install -D eslint-plugin-babel babel-eslint
 ```
 
 **ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.
 
-You should install `eslint` and other dependencies by yourself.
-
 ## Usage
-
-*Note: We omitted the `eslint-config-` prefix since it is automatically assumed by ESLint.*
-
-You can override settings from the shareable config by adding them directly into your `.eslintrc` file.
 
 Edit your `.eslintrc` file. Apply different code styles as below:
 
@@ -57,8 +55,9 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 
 **It's default for ES6 syntax and ES6 global variables:**
 
-```js
+```json
 {
+  "root": true,
   "extends": "adoyle-style/node"
 }
 ```
@@ -67,20 +66,22 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 
 **It's default for ES5 syntax:**
 
-```js
+```json
 {
+  "root": true,
   "extends": "adoyle-style/browser"
 }
 ```
 
 additional ES6 syntax:
 
-```js
+```json
 {
+  "root": true,
   "extends": [
     "adoyle-style/browser",
-    "adoyle-style/browser/es6",
-  ],
+    "adoyle-style/browser/es6"
+  ]
 }
 ```
 
@@ -88,36 +89,39 @@ additional ES6 syntax:
 
 Additional React/JSX support:
 
-```js
+```json
 {
+  "root": true,
   "extends": [
     "adoyle-style/browser",
     "adoyle-style/browser/es6",
     "adoyle-style/plugin/import",
     "adoyle-style/plugin/jsx-a11y",
-    "adoyle-style/plugin/react",
-  ],
+    "adoyle-style/plugin/react"
+  ]
 }
 ```
 
 Additional Babel support:
 
-```js
+```json
 {
+  "root": true,
   "extends": [
-    "adoyle-style/plugin/babel",
-  ],
+    "adoyle-style/plugin/babel"
+  ]
 }
 ```
 
 Additional import support:
 
-```js
+```json
 {
+  "root": true,
   "extends": [
     "adoyle-style/node",
-    "adoyle-style/plugin/import",
-  ],
+    "adoyle-style/plugin/import"
+  ]
 }
 ```
 
@@ -125,25 +129,66 @@ Additional import support:
 
 You should install each devDependency by yourself when using the `adoyle-style/plugin/*`. And each package's version should under the `optionalDependencies`. Such as `eslint-plugin-jsx-a11y`, `eslint-plugin-import`, `eslint-plugin-react`.
 
-You should use `babel-eslint` instead of `eslint` as parser for ES6+ syntax.
-
 ### For Test
 
 @TODO
+
+## Develop
+
+### Show differences
+
+```sh
+# install node modules
+npm i
+# update eslint related deps to latest
+./tools/update_eslint_deps
+# To show all differences between latest and current rules.
+./tools/what_news
+```
+
+Then edit rules by yourself.
+
+### Query Rule
+
+```sh
+# To query rule description
+./tools/find_rule $rule_name
+
+# For example
+./tools/find_rule default-param-last
+#{
+#    "type": "suggestion",
+#    "docs": {
+#        "description": "enforce default parameters to be last",
+#        "category": "Best Practices",
+#        "recommended": false,
+#        "url": "https://eslint.org/docs/rules/default-param-last"
+#    },
+#    "messages": {
+#        "shouldBeLast": "Default parameters should be last."
+#    }
+#}
+
+./tools/find_rule import/imports-first
+# {
+#     "type": "suggestion",
+#     "docs": {
+#         "url": "https://github.com/benmosher/eslint-plugin-import/blob/7b25c1cb95ee18acc1531002fd343e1e6031f9ed/docs/rules/imports-first.md"
+#     },
+#     "fixable": "code",
+#     "deprecated": true
+# }
+```
 
 ## Versioning
 
 The versioning follows the rules of SemVer 2.0.0.
 
-**BUT**, anything may have **BREAKING CHANGES** at **ANY TIME** when major version is zero (0.y.z), which is for initial development and the public API should not be considered stable.
-
-When major version is zero, You should save it with prefix `~`.
-
 For more information on SemVer, please visit http://semver.org/.
 
 ## Copyright and License
 
-Copyright (c) 2016-2019 ADoyle. The project is licensed under the **BSD 3-clause License**.
+Copyright (c) 2016-2020 ADoyle. The project is licensed under the **BSD 3-clause License**.
 
 See the [LICENSE][] file for the specific language governing permissions and limitations under the License.
 
