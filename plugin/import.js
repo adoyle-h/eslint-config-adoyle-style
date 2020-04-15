@@ -40,7 +40,6 @@ module.exports = {
         'import/no-commonjs': 0,
         'import/no-amd': 2,
         'import/no-nodejs-modules': 0,
-        'import/imports-first': [2, 'absolute-first'],
         'import/no-duplicates': 2,
         'import/no-namespace': 0,
         'import/extensions': [0, 'never'],
