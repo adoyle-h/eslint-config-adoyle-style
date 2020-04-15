@@ -1,0 +1,179 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/* eslint-disable no-console */
+
+const assert = require('assert');
+const util = require('lodash');
+const Path = require('path');
+const fg = require('fast-glob');
+const chalk = require('chalk');
+
+const debugEslintRules = require('debug')('news:eslint');
+
+const genGatherRule = (pkgName) => (ruleName, ctx) => {
+    const {name: ctxName, rulesMap} = ctx;
+    const ruleBaseDir = Path.join(__dirname, `../node_modules/${pkgName}/lib/rules/`);
+    const reqPath = Path.join(ruleBaseDir, `${ruleName}.js`);
+    const {meta} = require(reqPath);
+
+    assert(meta, `Not found exported property "meta" from ${reqPath}`);
+    assert(meta.docs, `Not found exported property "meta.docs" from ${reqPath}`);
+    const {category = '[category undefined]'} = meta.docs;
+    const rule = {name: ruleName, meta, category};
+    rulesMap[`${ctxName}/${ruleName}`] = rule;
+    ctx.rules.push(rule);
+};
+
+const gatherAllRules = (name, ruleNames) => {
+    const ctx = {
+        name,
+        namePrefix: name === 'eslint' ? '' : `${name.slice('eslint-plugin-'.length)}/`,
+        rulesMap: {}, rules: [],
+    };
+    const gatherRules = genGatherRule(name);
+    ruleNames.forEach((ruleName) => gatherRules(ruleName, ctx));
+    return ctx;
+};
+
+const printRemovedRules = (ctx, ruleNames) => {
+    console.log(chalk.red(`\n[Removed rules] (${ruleNames.length})`));
+
+    const {name, rulesMap, namePrefix} = ctx;
+
+    ruleNames.forEach((ruleName) => {
+        const rule = rulesMap[`${name}/${ruleName}`];
+        assert(rule, `Not found rule: ${name}/${ruleName}`);
+        const {meta} = rule;
+        const {url = '[url undefined]'} = meta.docs;
+        console.log(`  - Rule: ${namePrefix}${ruleName}\n    ${url}`);
+    });
+};
+
+const printAddedRule = (ctx, ruleName, myRuleNames) => {
+    const {name, rulesMap, namePrefix} = ctx;
+
+    const rule = rulesMap[`${name}/${ruleName}`];
+    assert(rule, `Not found rule: ${name}/${ruleName}`);
+    const {meta} = rule;
+
+    const {docs, deprecated, replacedBy} = meta;
+    const {url = '[url undefined]', recommended = '[recommended undefined]'} = docs;
+
+    let deprecatedTag = '';
+    if (deprecated) {
+        if (myRuleNames.includes(rule)) {
+            deprecatedTag = ` [Deprecated][ReplacedBy ${replacedBy}]`;
+        } else {
+            return;
+        }
+    }
+
+    console.log(`  - Rule: ${namePrefix}${ruleName} [recommended: ${recommended}]${deprecatedTag}\n    ${url}`);
+};
+
+const printAddedRules = (ctx, addedRuleNames, myRuleNames) => {
+    const {rulesMap, name} = ctx;
+
+    const cates = util.groupBy(addedRuleNames, (ruleName) => {
+        const rule = rulesMap[`${name}/${ruleName}`];
+        assert(rule, `Not found rule: ${name}/${ruleName}`);
+        return rule.category;
+    });
+
+    console.log(chalk.green(`\n[Added rules] (${addedRuleNames.length})`));
+    util.forOwn(cates, (ruleNames, category) => {
+        const {length} = ruleNames;
+        if (length > 0) {
+            console.log(chalk.blue(`» ${category}`), chalk.green(`(${length})`));
+            ruleNames.forEach((name) => printAddedRule(ctx, name, myRuleNames));
+        }
+    });
+};
+
+const p = (title) => console.log(chalk.bgWhite.black(`\n   ${title}   `));
+const pStatistics = (name, ruleNames, myRuleNames) => {
+    debugEslintRules('ruleNames=%O, myRuleNames=%O', ruleNames, myRuleNames);
+
+    const ctx = gatherAllRules(name, ruleNames);
+    const {namePrefix} = ctx;
+
+    const deprecateds = util.chain(ctx.rules)
+        .filter((rule) => rule.meta.deprecated)
+        .map((r) => r.name)
+        .sortedUniq().value();
+    const difference = util.chain(ruleNames).xor(myRuleNames).sortedUniq().value();
+    const adds = util.chain(ruleNames)
+        .intersection(difference)
+        .difference(deprecateds)
+        .sortedUniq().value();
+    const removes = util.chain(myRuleNames).intersection(difference).sortedUniq().value();
+
+    console.log(`
+[Statistics]
+Latest: ${ruleNames.length - deprecateds.length} rules + ${deprecateds.length} deprecated rules
+Current: ${myRuleNames.length} rules
+Deprecated: ${deprecateds.map((name) => `${ctx.namePrefix}${name}`).join(', ')}
+`);
+
+    if (myRuleNames.length !== (ruleNames.length - deprecateds.length)) {
+        console.log(`[Difference ${difference.length} rules]`);
+        console.log(difference.map((name) => `${namePrefix}${name}`).join(', '));
+    }
+
+    printAddedRules(ctx, adds, myRuleNames);
+    printRemovedRules(ctx, removes, myRuleNames);
+};
+
+async function getEslintDifference() {
+    p('eslint');
+    const name = 'eslint';
+    const ruleBaseDir = Path.join(__dirname, `../node_modules/${name}/lib/rules/`);
+    const entries = await fg([Path.join(ruleBaseDir, '*.js')]);
+    const ruleNames = util.chain(entries)
+        .map((x) => Path.basename(x, '.js'))
+        .filter((item) => item !== 'index')
+        .value();
+
+    const myRules = await fg([Path.join(__dirname, '../eslint_rules/*.js')]);
+    const myRuleNames = [];
+    myRules.forEach((path) => {
+        const {rules} = require(path);
+        util.forOwn(rules, (_, rule) => {
+            myRuleNames.push(rule);
+        });
+    });
+
+    pStatistics(name, ruleNames, myRuleNames);
+}
+
+const getDifference = (name) => async () => {
+    p(`eslint-plugin-${name}`);
+    const myPlugin = require(Path.join(__dirname, `../plugin/${name}.js`));
+    if (!myPlugin.rules) {
+        console.log(chalk.gray('\nNo any rules changed.\n'));
+        return;
+    }
+    const myRuleNames = Object.keys(myPlugin.rules).map((rule) => rule.replace(new RegExp(`^${name}/`), ''));
+
+    const rules = await fg([Path.join(__dirname, `../node_modules/eslint-plugin-${name}/lib/rules/*.js`)]);
+    const ruleNames = rules.map((path) => {
+        return Path.basename(path, '.js');
+    });
+
+    pStatistics(`eslint-plugin-${name}`, ruleNames, myRuleNames);
+};
+
+async function run() {
+    await getEslintDifference();
+    await getDifference('jsx-a11y')();
+    await getDifference('react')();
+    await getDifference('import')();
+    await getDifference('babel')();
+}
+
+run().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

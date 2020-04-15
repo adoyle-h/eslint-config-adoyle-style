@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/* eslint-disable no-console */
+
+const util = require('lodash');
+const CP = require('child_process');
+const u = require('util');
+const exec = u.promisify(CP.exec);
+const pkg = require('../package.json');
+
+async function ensureEslintDepsLatest() {
+    const args = util.chain(pkg.devDependencies)
+        .pickBy((_, key) => key.startsWith('eslint'))
+        .keys()
+        .map((depName) => `${depName}@latest`)
+        .join(' ')
+        .value();
+
+    console.log(`To update eslint dependencies: ${args}`);
+    const {stderr} = await exec(`npm i -D ${args}`);
+    // if (!util.isEmpty(stdout)) console.warn(stdout);
+    if (!util.isEmpty(stderr)) console.warn(stderr);
+    console.log('All Installed');
+}
+
+async function run() {
+    await ensureEslintDepsLatest();
+}
+
+run().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

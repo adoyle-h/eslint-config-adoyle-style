@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/* eslint-disable no-console */
+
+const assert = require('assert');
+const lodash = require('lodash');
+const Path = require('path');
+
+const query = process.argv[2];
+
+if (lodash.isEmpty(query)) {
+    console.log('Usage: find-rule <rule-name>');
+    process.exit(0);
+}
+
+const splits = query.split('/');
+let rule, prefixName;
+if (splits.length < 2) {
+    prefixName = 'eslint';
+    rule = splits[0];
+} else {
+    prefixName = splits[0];
+    rule = splits[1];
+}
+
+const ruleBaseDirMap = {
+    eslint: 'eslint/lib/rules',
+    import: 'eslint-plugin-import/lib/rules',
+    babel: 'eslint-plugin-babel/rules',
+    'jsx-a11y': 'eslint-plugin-jsx-a11y/lib/rules',
+    react: 'eslint-plugin-react/lib/rules',
+};
+
+let ruleBaseDir = ruleBaseDirMap[prefixName];
+assert(ruleBaseDir, `No matched rule: ${rule}`);
+ruleBaseDir = Path.join(__dirname, '../node_modules/', ruleBaseDir);
+
+const {meta} = require(Path.join(ruleBaseDir, `${rule}.js`));
+const results = lodash.omit(meta, ['schema']);
+
+// eslint-disable-next-line
+console.log(JSON.stringify(results, null, 4));
