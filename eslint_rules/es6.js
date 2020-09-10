@@ -38,7 +38,7 @@ module.exports = {
         // disallow unnecessary computed property keys in object literals
         'no-useless-computed-key': 2,
         // disallow unnecessary constructors
-        'no-useless-constructor': 2,
+        'no-useless-constructor': 1,
         // disallow renaming import, export, and destructured assignments to the same name (fixable)
         'no-useless-rename': [2, {
             'ignoreDestructuring': false,
