@@ -43,6 +43,9 @@ npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
 
 # If your project use babel
 npm install -D eslint-plugin-babel babel-eslint
+
+# If your project use jest
+npm install -D eslint-plugin-jest
 ```
 
 **ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.
@@ -58,9 +61,20 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 ```json
 {
   "root": true,
-  "extends": "adoyle-style/node"
+  "extends": ["adoyle-style/node"]
 }
 ```
+
+or
+
+```json
+{
+  "root": true,
+  "extends": ["adoyle-style/node/recommended"]
+}
+```
+
+"adoyle-style/node/recommended" includes much appropriate plugins. But the eslint-plugins still need to be installed by yourself.
 
 ### For Browser
 
@@ -69,7 +83,7 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 ```json
 {
   "root": true,
-  "extends": "adoyle-style/browser"
+  "extends": ["adoyle-style/browser"]
 }
 ```
 
@@ -102,12 +116,25 @@ Additional React/JSX support:
 }
 ```
 
+Additional Jest support:
+
+```json
+{
+  "root": true,
+  "extends": [
+    "adoyle-style/node",
+    "adoyle-style/plugin/jest"
+  ]
+}
+```
+
 Additional Babel support:
 
 ```json
 {
   "root": true,
   "extends": [
+    "adoyle-style/node",
     "adoyle-style/plugin/babel"
   ]
 }

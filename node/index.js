@@ -1,17 +1,21 @@
 'use strict';
 
+const eslintExtends = [
+    'best_practices',
+    'commonjs',
+    'possible_errors',
+    'strict',
+    'stylistic_issues',
+    'variables',
+    'es6',
+].map((path) => {
+    return require.resolve(`../eslint_rules/${path}`);
+});
+
+eslintExtends.push('plugin:require-path-exists/recommended');
+
 module.exports = {
-    extends: [
-        'best_practices',
-        'commonjs',
-        'possible_errors',
-        'strict',
-        'stylistic_issues',
-        'variables',
-        'es6',
-    ].map((path) => {
-        return require.resolve(`../eslint_rules/${path}`);
-    }),
+    extends: eslintExtends,
     env: {
         node: true,
     },
@@ -20,6 +24,9 @@ module.exports = {
         sourceType: 'script',
     },
     globals: {},
+    plugins: [
+        'require-path-exists',
+    ],
     rules: {
         'no-shadow': [1, {
             'builtinGlobals': true,
