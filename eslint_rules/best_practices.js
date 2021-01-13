@@ -85,7 +85,7 @@ module.exports = {
         // disallow creation of functions within loops
         'no-loop-func': 2,
         // disallow the use of magic numbers
-        'no-magic-numbers': [1, {
+        'no-magic-numbers': [0, {
             'ignore': [],
             'ignoreArrayIndexes': true,
             'enforceConst': false,
