@@ -32,7 +32,7 @@ module.exports = {
         // require the use of `===` and `!==`
         'eqeqeq': [2, 'allow-null'],
         // make sure `for-in` loops have an `if` statement
-        'guard-for-in': 2,
+        'guard-for-in': 0,
         // disallow the use of `alert`, `confirm`, and `prompt`
         'no-alert': 0,
         // disallow use of `arguments.caller` or `arguments.callee`
