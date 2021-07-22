@@ -1,3 +1,13 @@
+# Changelog
+
+
+## [7.0.0](https://github.com/adoyle-h/eslint-config-adoyle-style/compare/v6.9.0...v7.0.0) (2021-07-22)
+
+
+### New Feature
+
+* eslint upgrade to ^7.28.0 && change extend name: adoyle-style/node/recommended -> adoyle-style/node ([278ab98](https://github.com/adoyle-h/eslint-config-adoyle-style/commit/278ab984548894b90b355d6ebd0e3844100e979a))
+
 # 6.8.0 (2020-04-15)
 
 ### Features
