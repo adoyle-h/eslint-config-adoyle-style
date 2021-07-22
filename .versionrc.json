@@ -1,0 +1,20 @@
+{
+  "header": "# Changelog\n\n",
+  "types": [
+    {"type": "feat","section":"New Feature"},
+    {"type": "fix","section":"Bug Fix"},
+    {"type": "docs", "section": "Documentation"},
+    {"type": "perf", "section": "Performance"},
+    {"type": "polish", "section": "Polish"},
+    {"type": "BREAKING CHANGE", "section": "Breaking Change"},
+    {"type": "refactor", "section": "Code Refactoring", "hidden": true},
+    {"type": "build","section":"Build System", "hidden": true},
+    {"type": "ci", "section":"Continuous Integration","hidden":true},
+    {"type": "chore", "section": "Miscellaneous Chore", "hidden": true},
+    {"type": "style", "section": "Code Style", "hidden": true},
+    {"type": "revert", "section": "Revert", "hidden": true},
+    {"type": "test","section":"Test", "hidden": true},
+    {"type": "release", "hidden": true}
+  ],
+  "releaseCommitMessageFormat": "release: version {{currentTag}}"
+}

@@ -4,6 +4,11 @@
   "description": "A set of eslint shareable configs for javascript code style, which follows ADoyle's code style.",
   "main": "node/index.js",
   "scripts": {
+    "release": "standard-version",
+    "release:as": "standard-version --release-as",
+    "release:major": "standard-version --release-as major",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -47,7 +52,8 @@
     "gulp-conventional-changelog": "^1.1.0",
     "gulp-filter": "^3.0.1",
     "lodash": "^4.17.15",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "standard-version": "^9.3.1"
   },
   "peerDependencies": {
     "eslint": "^7.28.0"
