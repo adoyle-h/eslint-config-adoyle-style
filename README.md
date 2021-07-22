@@ -35,8 +35,9 @@ The configurations for browser and server development. It supports ES6, and Reac
 ## Installation
 
 ```sh
+# ATTENTION: Use `npm install -E` to install exact version.
 npm install -DE eslint-config-adoyle-style
-npm install -D eslint@6
+npm install -D eslint@7
 
 # Only for browser
 npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
@@ -48,8 +49,6 @@ npm install -D eslint-plugin-babel babel-eslint
 npm install -D eslint-plugin-jest
 ```
 
-**ATTENTION**: Use `npm install -E` to save eslint-config-adoyle-style with exact version.
-
 ## Usage
 
 Edit your `.eslintrc` file. Apply different code styles as below:
@@ -58,98 +57,77 @@ Edit your `.eslintrc` file. Apply different code styles as below:
 
 **It's default for ES6 syntax and ES6 global variables:**
 
-```json
-{
-  "root": true,
-  "extends": ["adoyle-style/node"]
-}
+```yaml
+root: true
+extends: adoyle-style/node
+
+overrides:
+  # This override is optional. You should install eslint-plugin-jest by yourself.
+  - files:
+      - '**/*.test.js'
+      - '**/__mocks__/*.js'
+    extends: adoyle-style/node/testing
 ```
 
-or
-
-```json
-{
-  "root": true,
-  "extends": ["adoyle-style/node/recommended"]
-}
-```
-
-"adoyle-style/node/recommended" includes much appropriate plugins. But the eslint-plugins still need to be installed by yourself.
+"adoyle-style/node/testing" includes much appropriate plugins which installed by yourself.
 
 ### For Browser
 
 **It's default for ES5 syntax:**
 
-```json
-{
-  "root": true,
-  "extends": ["adoyle-style/browser"]
-}
+```yaml
+root: true
+extends: adoyle-style/browser
 ```
 
-additional ES6 syntax:
+If you use ES6 syntax:
 
-```json
-{
-  "root": true,
-  "extends": [
-    "adoyle-style/browser",
-    "adoyle-style/browser/es6"
-  ]
-}
+```yaml
+root: true
+extends:
+  - adoyle-style/browser
+  - adoyle-style/browser/es6
 ```
 
 ### Additional Plugins
 
 Additional React/JSX support:
 
-```json
-{
-  "root": true,
-  "extends": [
-    "adoyle-style/browser",
-    "adoyle-style/browser/es6",
-    "adoyle-style/plugin/import",
-    "adoyle-style/plugin/jsx-a11y",
-    "adoyle-style/plugin/react"
-  ]
-}
+```yaml
+root: true
+extends:
+  - adoyle-style/browser
+  - adoyle-style/browser/es6
+  - adoyle-style/plugin/import
+  - adoyle-style/plugin/jsx-a11y
+  - adoyle-style/plugin/react
 ```
 
 Additional Jest support:
 
-```json
-{
-  "root": true,
-  "extends": [
-    "adoyle-style/node",
-    "adoyle-style/plugin/jest"
-  ]
-}
+```yaml
+root: true
+extends:
+  - adoyle-style/node
+  - adoyle-style/plugin/jest
 ```
 
 Additional Babel support:
 
-```json
-{
-  "root": true,
-  "extends": [
-    "adoyle-style/node",
-    "adoyle-style/plugin/babel"
-  ]
-}
+```yaml
+root: true
+extends:
+  - adoyle-style/node
+  - adoyle-style/plugin/babel
 ```
 
 Additional import support:
 
-```json
-{
-  "root": true,
-  "extends": [
-    "adoyle-style/node",
-    "adoyle-style/plugin/import"
-  ]
-}
+```yaml
+root: true
+extends:
+  - adoyle-style/node
+  - adoyle-style/plugin/import
 ```
 
 **Attention!**
@@ -215,7 +193,7 @@ For more information on SemVer, please visit http://semver.org/.
 
 ## Copyright and License
 
-Copyright (c) 2016-2020 ADoyle. The project is licensed under the **BSD 3-clause License**.
+Copyright 2020-2021 ADoyle (adoyle.h@gmail.com). The project is licensed under the **BSD 3-clause License**.
 
 See the [LICENSE][] file for the specific language governing permissions and limitations under the License.
 

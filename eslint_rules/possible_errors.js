@@ -76,5 +76,10 @@ module.exports = {
         'no-import-assign': 2,
         'no-dupe-else-if': 2,
         'no-setter-return': 2,
+        'no-loss-of-precision': 2,
+        'no-promise-executor-return': 0,
+        'no-unreachable-loop': 0,
+        'no-unsafe-optional-chaining': 0,
+        'no-useless-backreference': 0,
     },
 };

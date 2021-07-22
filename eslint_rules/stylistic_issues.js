@@ -226,5 +226,6 @@ module.exports = {
         'line-comment-position': 0,
         'function-call-argument-newline': 0,
         'prefer-exponentiation-operator': 0,
+        'id-denylist': 0,
     },
 };

@@ -146,7 +146,7 @@ module.exports = {
         // disallow use of the `with` statement
         'no-with': 2,
         // require use of the second argument for `parseInt()`
-        'radix': [2, 'as-needed'],
+        'radix': 0,
         // require declaration of all vars at the top of their containing scope
         'vars-on-top': 0,
         // require immediate function invocation to be wrapped in parentheses
@@ -162,5 +162,7 @@ module.exports = {
         'grouped-accessor-pairs': 0,
         'no-constructor-return': 2,
         'prefer-regex-literals': 0,
+        'default-case-last': 2,
+        'no-nonoctal-decimal-escape': 0,
     },
 };

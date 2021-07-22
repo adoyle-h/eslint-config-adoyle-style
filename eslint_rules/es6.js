@@ -82,5 +82,6 @@ module.exports = {
         'prefer-numeric-literals': 0,
         // require symbol descriptions
         'symbol-description': 0,
+        'no-restricted-exports': 0,
     },
 };

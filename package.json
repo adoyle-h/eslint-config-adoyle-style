@@ -26,13 +26,16 @@
   "engines": {
     "node": ">=8"
   },
+  "dependencies": {
+    "eslint-plugin-require-path-exists": "^1.1.9"
+  },
   "devDependencies": {
     "a-gulp-license": "^2.0.0",
     "chalk": "^2.4.2",
     "config-sp": "^0.1.2",
     "debug": "^4.1.1",
     "del": "^2.2.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.28.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^24.1.0",
@@ -47,9 +50,6 @@
     "run-sequence": "^1.1.5"
   },
   "peerDependencies": {
-    "eslint": ">=6.8.0 <7"
-  },
-  "dependencies": {
-    "eslint-plugin-require-path-exists": "^1.1.9"
+    "eslint": "^7.28.0"
   }
 }
